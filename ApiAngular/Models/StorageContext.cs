@@ -1,4 +1,5 @@
 ﻿using ApiAngular.Models.Articles;
+using ApiAngular.Models.Authors;
 using ApiAngular.Models.Comments;
 using Microsoft.EntityFrameworkCore;
 
