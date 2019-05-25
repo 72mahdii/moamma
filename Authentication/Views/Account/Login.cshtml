@@ -1,0 +1,63 @@
+﻿@model LoginAuthor
+@{
+    Layout = "_Layout";
+}
+<div class="home">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12"></div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 py-5 d-flex justify-content-center">
+                <div class="entry">
+                    <div class="entry_title">
+                        ورود به پنل نویسندگان
+                    </div>
+                    <form asp-action="Login" method="post">
+                        <div asp-validation-summary="All"></div>
+                        <input type="hidden" asp-for="ReturnUrl" />
+                        <div class="entry_content">
+                            <div class="entry_content_logo-box">
+                                <img src="~/imgs/logo.png" alt="معما" class="entry_content_logo-box--img">
+                                <span class="entry_content_logo-box--title">گروه فنی و مهندسی معما پی</span>
+                                <span class="entry_content_logo-box--sbtitle">نمایندگی انحصاری میلگرد بستر در ساتان قم</span>
+                            </div>
+                            <div class="entry_content_form-box">
+                                <div class="entry_content_form-box--input-box">
+                                    <div class="entry_content_form-box--input-box--label">نام کاربری</div>
+                                    <input type="text" asp-for="Username" autofocus class="entry_content_form-box--input-box--input">
+                                </div>
+                                <div class="entry_content_form-box--input-box">
+                                    <div class="entry_content_form-box--input-box--label">رمز عبور</div>
+                                    <input id="psw-input" asp-for="Password" autocomplete="off" type="password" asp-for="Password" class="entry_content_form-box--input-box--input">
+                                    <span onmousedown="openEye()" onmouseup="closeEye()" class="eye-btn">
+                                    <i id="eye" class="fa fa-eye-slash"></i>
+                                    </span>
+                                    <a asp-action="forgotpassword" class="forgot-btn">رمز عبور خود را فراموش کرده اید؟</a>
+                                    <input type="checkbox" asp-for="RememberLogin" class="custom-control-input" hidden>
+                                </div>
+                                <div class="entry_content_form-box--btn-box">
+                                    <button type="submit" value="login" name="button" class="entry_content_form-box--btn-box--btn">ورود</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var show = false;
+    function openEye() {
+        document.getElementById('eye').classList.remove('fa-eye-slash');
+        document.getElementById('eye').classList.add('fa-eye');
+        document.getElementById('psw-input').type = 'text';
+    }
+
+    function closeEye() {
+        document.getElementById('eye').classList.remove('fa-eye');
+        document.getElementById('eye').classList.add('fa-eye-slash');
+        document.getElementById('psw-input').type = 'password';
+    }
+</script>

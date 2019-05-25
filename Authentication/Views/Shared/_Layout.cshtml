@@ -1,0 +1,42 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>معمارادمان پی نگار</title>
+    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/styles/login.css" rel="stylesheet" />
+    <link href="~/styles/fonts.css" rel="stylesheet" />
+    <link href="~/styles/forgot.css" rel="stylesheet" />
+
+</head>
+<body>
+    @RenderSection("Scripts", false)
+    @RenderBody()
+
+    <div class="popup" id="popup">
+        <div class="popup_content">
+            @ViewBag.Message
+            <span class="popup_close" id="close_pop">
+                <i class="fa fa-close"></i>
+            </span>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        var bag = '@ViewBag.Message';
+        if( bag != ''){
+            document.getElementById("popup").style.opacity = 1;
+            document.getElementById("popup").style.visibility = "visible";
+        }else {
+            document.getElementById("popup").style.opacity = 0;
+            document.getElementById("popup").style.visibility = "hide";
+        }
+        document.getElementById("close_pop").onclick = function () {
+            document.getElementById("popup").style.opacity = 0;
+            document.getElementById("popup").style.visibility = "hidden";
+        }
+
+    </script>
+</body>
+</html>
