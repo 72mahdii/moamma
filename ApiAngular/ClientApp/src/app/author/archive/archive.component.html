@@ -1,0 +1,56 @@
+<div class="archived">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="article_box">
+          <div class="header">
+            <div class="title">آرشیو مقالات</div>
+          </div>
+          <div class="content">
+            <div class="content_articles">
+              <div class="list-box">
+                <div class="container">
+                  <!-- Loop -->
+                  <div class="item" *ngFor="let article of archive">
+                    <div class="row align-items-center">
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                        <span class="title">
+                          {{ article?.title }}
+                        </span>
+                      </div>
+                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+                        <div class="info">
+                          <span class="date">
+                            <i class="fa fa-calendar"></i>
+                            {{ article?.crtDate | slice:0:10 }}
+                          </span>
+                          <span class="comment">
+                            <i class="fa fa-comment"></i>
+                            {{ article?.comments.length }}
+                          </span>
+                          <span class="trash" (click)="onTrash(article)">
+                            <i class="fa fa-trash"></i>
+                          </span>
+                          <a class="state" (click)="onSend(article)">
+                            <i class="fa fa-share-square"></i>
+                          </a>
+                          <a class="cog "
+                            routerLink="../create-article/{{article?.id}}">
+                            <i class="fa fa-cog"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="no-archive" *ngIf="archive.length == 0">
+                    آرشیو مقالات خالی است
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

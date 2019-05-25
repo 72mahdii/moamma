@@ -1,0 +1,86 @@
+<div class="box">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="cmt-header blue-header">{{ article?.title }}</h5>
+        <div class="comment-manager blue-border">
+          <div class="unread-cmt">
+            <div class="row p-2 tb-head tb-head-red">
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                <div class="c-head">نام</div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                <div class="c-head">متن</div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                <div class="c-head">پاسخ</div>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                <div class="c-head">تنظیمات</div>
+              </div>
+            </div>
+            <div class="row p-2 tb-body" *ngFor="let c of article?.comments">
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                <div class="c-body">{{ c?.name }}</div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                <div class="c-body">{{ c?.text }}</div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                <div class="c-r-body">
+                  <div class="row p-1 tb-head r-head-red">
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                      <div class="r-head">متن</div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                      <div class="r-head">تنظیمات</div>
+                    </div>
+                  </div>
+                  <div class="row p-1 tb-body tb-r-body" *ngFor="let r of c?.replyComments">
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                      <div class="r-body">{{ r?.text }}</div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                      <div class="r-body">
+                        <div id="{{r?.id}}" (click)="onRTrash(r.id)" class="custom-btn red-btn un">
+                          <i class="fa fa-trash"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                <div class="c-body">
+                  <div id="{{c?.id}}" (click)="onCheck(c.id)"
+                    [class]="c.approved ? 'custom-btn-c check' : 'custom-btn-c uncheck'">
+                    <i class="fa fa-check-square"></i>
+                  </div>
+                  <div id="d-{{c?.id}}" (click)="onTrash(c.id)" class="custom-btn red-btn un">
+                    <i class="fa fa-trash"></i>
+                  </div>
+                  <div class="custom-btn blue-btn" (click)="onReply(c?.id)">
+                    <i class="fa fa-reply"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fox-container">
+            <div class="fox-btn fox-blue-btn" >
+              <span class="fox-btn-text" (click)="onSubmit()">اعمال تغییرات</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="reply-box off" id="reply-box">
+  <h5 class="reply-box-title">ارسال پاسخ</h5>
+  <textarea rows="4" type="text" class="msg-text" placeholder="متن پیام..." [(ngModel)]="reply" name="reply"></textarea>
+  <button (click)="onSend()" class="btn btn-primary btn-lg btn-block">ارسال</button>
+  <a (click)="onClose()" class="btn btn-secondary btn-lg btn-block">انصراف</a>
+</div>

@@ -1,0 +1,42 @@
+@keyframes coming {
+  from {
+    opacity: .8;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes updown {
+  0% {
+    // transform: scale(.8) translate(-50%, -50%);
+    border: solid .5rem $gold_3;
+    border-top: solid .5rem $gold_1;
+  }
+
+  25% {
+    // transform: scale(1) translate(-50%, -50%);
+    border: solid .5rem $gold_3;
+
+    border-right: solid .5rem $gold_1;
+  }
+}
+
+@keyframes pop {
+  from{
+    transform: translate(-50%, -50%) scale(.7);
+    border-radius: 10%
+  }
+  to{
+    transform: translate(-50%, -50%) scale(1.1);
+    border-radius: 100%
+
+  }
+}

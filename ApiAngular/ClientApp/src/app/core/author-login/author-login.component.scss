@@ -1,0 +1,27 @@
+@import '../../scss/importer';
+
+.loading-box{
+  @include rawFix;
+  @include bg($gr_black_1);
+  @include size(100%, 100vh);
+
+  .loading{
+    position: relative;
+      @include abRightT(30%, 50%, 50%, 0%);
+      @include border(.5rem $gold_2);
+      @include size(40rem, 20rem);
+      animation: updown;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      border-radius: .5rem;
+      color: $gold_1;
+      .text {
+        @include abC;
+        font-size: 2.5rem;
+        font-family: 'B_Esfehan';
+        text-align: center;
+        width: 100%;
+      }
+
+  }
+}

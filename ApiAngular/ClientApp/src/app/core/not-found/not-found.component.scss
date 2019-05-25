@@ -1,0 +1,98 @@
+@import '../../scss/importer';
+
+.not-found {
+  @include rawFix;
+  @include size(100vw, 100vh);
+  @include bg($gr_home);
+  direction: rtl;
+
+  .logo-box {
+    position: relative;
+    margin:3rem auto;
+    padding: 2rem;
+    .logo-cnt {
+      @include abCenRot;
+      @include pol(.2rem $black_2, .4rem $gold_2);
+      @include size(10rem, 10rem);
+      @include bg($gr_black_op);
+      .logo-img {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-60%, -65%) rotate(-45deg);
+        @include size(8rem, auto);
+      }
+    }
+  }
+  .title-box {
+    position: relative;
+    margin: 7rem auto;
+    margin-bottom: 1rem;
+    padding:1rem;
+    .title {
+      @include abC;
+      font-family: 'B_Yas';
+      font-size: 3.5rem;
+      color: $gold_1;
+      text-align: center;
+      @include size(45rem, auto);
+    }
+  }
+  .sub-title-box {
+    margin:.5rem auto;
+    padding: .5rem;
+    @include size(100%, auto);
+    .title {
+      font-family: 'B_Yas';
+      font-size: 2.5rem;
+      color:$gold_1;
+      text-align: center;
+    }
+  }
+
+  .sp {
+    @include size(70%, .5rem);
+    @include bg($gold_2);
+    border-radius: 100%;
+    margin: 0rem auto;
+    margin-bottom: 2rem;
+  }
+  .text-msg {
+    margin: 0rem auto;
+
+    .text{
+      font-family: 'B_Yas';
+      font-size: 5rem;
+      text-align: center;
+      color:$red_1;
+    }
+  }
+
+  .nav-item{
+    margin: 8rem auto;
+    padding: 1rem;
+    position: relative;
+    .nav-item-link-box {
+      @include bg($gold_2);
+      @include pol(.2rem $black_2, .4rem $gold_2);
+      @include size(9rem, 9rem);
+      @include abCenRot;
+      transition: all .3s;
+      &:hover {
+        @include pol(.4rem $black_2, .6rem $gold_2);
+        cursor: pointer;
+        @include shadow(.4rem $gold_1);
+      }
+      .nav-text{
+        position: absolute;
+        top:54%;
+        left:46%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        @include size(7rem, auto);
+        font-family: 'B_Yas';
+        font-size: 2rem;
+        color: $black_2;
+      }
+    }
+  }
+}

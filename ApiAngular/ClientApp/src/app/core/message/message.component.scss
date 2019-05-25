@@ -1,0 +1,68 @@
+@import '../../scss/importer';
+
+.message-section{
+
+
+  .bg{
+    @include rawFix;
+    @include bg(rgba($black_1, .9));
+    @include size(100%, 100vh);
+    z-index: 999999;
+    .message-box {
+      @include abC;
+      @include size(60rem, 11rem);
+      @include bg($white_1);
+      .message-close {
+        @include abRight(0, 1%);
+        color: $red_1;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      .message-text {
+        // @include abC;
+        @include abT(15%, 50%, -50%, 0);
+        font-family: 'B_Mitra';
+        font-weight: bold;
+        font-size: 2rem;
+        direction: rtl;
+      }
+      .message-buttons {
+        @include size(60rem, 4rem);
+        position: absolute;
+        bottom:0;
+        left:50%;
+        transform: translate(-50%, 0);
+        text-align: center;
+        .message-btn {
+          @include size(15rem, 3rem);
+          @include bg($red_1);
+          display: inline-block;
+          margin: 0 1rem;
+          position: relative;
+          cursor: pointer;
+          &:hover {
+            border-radius: .5rem;
+            border: solid .1rem $white_1;
+            opacity: .9;
+          }
+          &--text {
+            @include abC;
+
+            font-family: 'B_Mitra';
+            // font-weight: bold;
+            font-size: 2rem;
+            color: $white_1;
+          }
+        }
+      }
+    }
+  }
+}
+.off{
+  visibility: hidden ;
+  opacity: 0 ;
+}
+.on {
+  visibility: visible ;
+  opacity: 1;
+}

@@ -1,0 +1,110 @@
+<div class="home">
+    <div class="container">
+      <div class="nav-box">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="title-box">
+              <div class="img-box">
+                <img src="/reynard.png" alt="" class="img-box--img">
+              </div>
+              <div class="title-text">
+                Fox Mode
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="nav-section">
+              <div class="nav-section--list">
+                <div class="nav-section--list_item white" (click)="onShowCreate()">Create</div>
+                <div class="nav-section--list_item red" (click)="onExit()">Exit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+
+      <div class="god-box" *ngFor="let author of authors">
+        <div class="row -1">
+          <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12"></div>
+          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
+            <div class="row p-1">
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+                <div class="img-box">
+                  <img [src]="author?.imgAddress ? author.imgAddress : 'assets/author-default.png'" alt=""
+                    class="img-box--img">
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="user-box">
+                  <span class="user-box--text">
+                    {{ author?.userName }}
+                  </span>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="setting-box">
+                  <button class="god-btn god-blue" (click)="onShowPass(author?.id)">Change Password</button>
+                  <button class="god-btn god-green" (click)="onShowUsername(author?.id)">Change Username</button>
+                  <button class="god-btn god-red" (click)="onRemove(author?.id)">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+
+<div class="change-pass-bg hide" id="password">
+  <div class="change-pass-form">
+    <div class="change-pass-title">
+      Change Password
+    </div>
+    <input type="password"
+    placeholder="New password" [(ngModel)]="password.password" name="password" class="custom-input">
+    <button (click)="onSubmitPass()" [disabled]="password.id == '' || password.password == ''" class="custom-btn custom-btn-blue">Save</button>
+    <button (click)="onClose('password')" class="custom-btn custom-btn-white">Cancel</button>
+  </div>
+</div>
+
+
+<div class="change-pass-bg hide" id="username">
+  <div class="change-pass-form">
+    <div class="change-pass-title">
+      Change Username
+    </div>
+    <input type="text" [(ngModel)]="userName.usr" name="usr" placeholder="Username" class="custom-input">
+    <button (click)="onSubmitUsername()" [disabled]="userName.id == '' || userName.usr == ''" class="custom-btn custom-btn-blue">Save</button>
+    <button (click)="onClose('username')" class=" custom-btn custom-btn-white">Cancel</button>
+  </div>
+</div>
+
+
+<div class="change-pass-bg hide" id="create">
+  <div class="change-pass-form">
+    <div class="change-pass-title">
+      Create Author
+    </div>
+    <input type="text" [(ngModel)]="createAuthor.userName" name="usr" placeholder="Username" class="custom-input">
+    <input type="text" [(ngModel)]="createAuthor.email" name="email" placeholder="Email" class="custom-input">
+    <input type="text" [(ngModel)]="createAuthor.nameInPersian" name="nameInPersian" placeholder="Persian Name" class="custom-input">
+    <input type="text" [(ngModel)]="createAuthor.category" name="category" placeholder="Category(geo, mng, earth" class="custom-input">
+    <input type="text" [(ngModel)]="createAuthor.password" name="password" placeholder="Password" class="custom-input">
+
+    <button (click)="onSubmitCreate()"
+      class="custom-btn custom-btn-blue">Save</button>
+    <button (click)="onClose('create')" class=" custom-btn custom-btn-white">Cancel</button>
+  </div>
+</div>
+
+<div class="forbiden-bg hide" id="fr">
+  <div class="forbiden-message">
+    <span class="text">You are not the Fox</span>
+    <a (click)="onOut()" class="back-link">Step Out</a>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+@import '../../scss/importer';
+
+.archived {
+  @include bg($gr_black_2);
+  font-family: 'B_Esfehan';
+  .article_box {
+    @include bg($gr_black_2);
+    @include border(.3rem $blue_2);
+    border-radius: .5rem;
+    margin: 2rem;
+    .header {
+      .title {
+        @include bg($blue_2);
+        text-align: right;
+        font-size: 2rem;
+        color: $dark_1;
+        padding: 1rem 2rem;
+      }
+    }
+    .content {
+      direction: rtl;
+      .content_articles {
+        @include bg($gr_black_1);
+        padding: 2rem 1rem;
+        .list-box {
+          padding: 4rem 3rem;
+          .item {
+            direction: rtl;
+            font-family: 'B_Esfehan';
+            border-radius: .5rem;
+            padding: 1rem;
+            background: #e9ebee;
+            margin: 1rem 0;
+            &:hover {
+              @include bg($blue_4);
+              transition: all .2s;
+              border-radius: 0;
+            }
+            .title {
+              color: $dark_1;
+              font-size: 2rem;
+              border-right: none;
+            }
+            .info {
+              display: inline-block;
+              & *:not(i) {
+                display: inline-block;
+                padding: 0 2rem;
+                color: $dark_1;
+                border-right: solid .2rem $dark_2;
+                font-size: 3rem;
+              }
+              .state {
+                color: $green_1 !important;
+              }
+              .state i:hover {
+                cursor: pointer;
+                transform: scale(1.4);
+                transition: all .3s;
+              }
+              .trash {
+                color: $red_1 !important;
+              }
+              .trash i:hover {
+                cursor: pointer;
+                transform: scale(1.4);
+                transition: all .3s;
+              }
+              .cog {
+                color: $gold_4 !important;
+              }
+              .cog i:hover {
+                cursor: pointer;
+                transform: scale(1.4);
+                transition: all .3s;
+              }
+              .cog:active {
+                transform: scale(1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.no-archive {
+  font-family: 'B_Esfehan';
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin: 1rem auto;
+  text-align: center;
+  color: $white_1;
+}
+
+.message_dialog,
+.message_dialog_2 {
+  @include rawFix;
+  @include size(100%, 100vh);
+  @include bg(rgba($white_1, .8));
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .6s;
+}
+
+.message_content,
+.message_content_2 {
+  @include abC;
+  @include shadow(4rem $black_2);
+  @include bg($blue_2);
+  width: 45%;
+  padding: 1rem;
+  text-align: center;
+  direction: rtl;
+  font-family: 'b Esfehan';
+  color: $red_1;
+  font-size: 2.5rem;
+}
+
+.text-message,
+.text-message_2 {
+  padding: 1.5rem;
+}
+
+.message_content button,
+.message_content_2 a,
+.message_content_2 button,
+.message_content input {
+  font-family: 'B Esfehan';
+}

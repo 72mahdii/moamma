@@ -1,0 +1,19 @@
+<div class="message-section" *ngIf="msg" >
+      <!-- [class]="message !=null ? 'message-section on' : 'message-section off'" -->
+  <div class="bg">
+    <div class="message-box">
+      <span class="message-close" (click)="onClose()">
+        <i class="fa fa-close"></i>
+      </span>
+      <span class="message-text">{{ message?.text }}</span>
+      <div class="message-buttons">
+        <div
+          class="message-btn"
+          *ngFor="let resp of message?.responses; let i=index"
+          (click)="onPushBtn(resp)"
+          >
+          <span class="message-btn--text">{{ resp[0] }}</span>
+        </div>
+      </div>
+  </div>
+</div>

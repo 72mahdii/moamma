@@ -1,10 +1,15 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
+using ApiAngular.Models.Authors;
+using ApiAngular.Models.Repository;
+using ApiAngular.Models;
 
 namespace ApiAngular
 {
@@ -17,35 +22,69 @@ namespace ApiAngular
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            // In production, the Angular files will be served from this directory
+            services.AddSingleton<FrontAuthor>();
+            services.AddSingleton<IArticleRep, ArticleRepository>();
+            services.AddDbContext<AdministrationContext>(options =>
+                options.UseSqlServer(Configuration["ConnectionStrings:Author:ConnectionString"]));
+            services.AddDbContext<StorageContext>(options =>
+                options.UseSqlServer(Configuration["ConnectionStrings:Storage:ConnectionString"]));
+            services.AddIdentity<Author, IdentityRole>()
+                .AddEntityFrameworkStores<AdministrationContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme =
+                            JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme =
+                            JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                o.Authority = "http://authors.moammapey.ir";
+                o.Audience = "resourceapi";
+                o.RequireHttpsMetadata = false;
+            });
+            services.AddMvc();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiReader",
+                        policy =>
+                            policy.RequireClaim(
+                                "scope", "api.read"));
+                options.AddPolicy("Consumer",
+                        policy =>
+                            policy.RequireClaim(
+                                ClaimTypes.Role, "consumer"));
+                options.AddPolicy("moamma_spa",
+                    policy =>
+                        policy.RequireClaim("scope", "api.read"));
+                options.AddPolicy("god_spa", policy =>
+                        policy.RequireClaim("scope", "api.read"));
+                options.AddPolicy("God",
+                        policy =>
+                            policy.RequireClaim(
+                                ClaimTypes.Role, "god"));
+
+            });
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
-            }
-
+            app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -55,8 +94,6 @@ namespace ApiAngular
 
             app.UseSpa(spa =>
             {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
 
                 spa.Options.SourcePath = "ClientApp";
 

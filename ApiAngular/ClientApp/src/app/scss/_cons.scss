@@ -1,0 +1,45 @@
+@import './variables/colors';
+@import './variables/gradients';
+.toggle-show {
+  display: block;
+}
+
+.toggle-hide {
+  display: none;
+}
+
+.deactive {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+.check {
+  @include bg($green_1);
+  opacity: 1;
+}
+
+.uncheck {
+  @include bg($red_1);
+  opacity: .5;
+}
+
+.blue-btn {
+  @include bg($blue_1);
+}
+
+.red-btn {
+  @include bg($red_1);
+}
+
+.ch {
+  opacity: 1;
+}
+
+.un {
+  opacity: .5;
+}
+

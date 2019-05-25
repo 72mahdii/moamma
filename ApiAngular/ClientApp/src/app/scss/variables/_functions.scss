@@ -1,0 +1,3 @@
+@function CreateGr($deg, $first, $second){
+  @return linear-gradient($deg, $first, $second);
+}

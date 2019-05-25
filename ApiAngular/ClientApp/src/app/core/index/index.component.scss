@@ -1,0 +1,355 @@
+@import '../../scss/importer.scss';
+
+
+.home {
+  @include bg($gr_home);
+  @include size(100%, auto);
+  padding-bottom: 16rem;
+  .header_box {
+    @include padB(8rem 0, 0);
+    position: relative;
+    font-family: 'B_Yas';
+    min-height: 22rem;
+    .first_row {
+
+      position: relative;
+      text-align: center;
+      padding-bottom: 10rem;
+      margin-top: -3rem;
+
+      .left_nav {
+        @include bg($gr_gold_1);
+        @include size(7rem, 7rem);
+        @include pol(.2rem $black_2, .4rem $gold_2);
+        @include tranRot(-45deg);
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3rem;
+
+        &:hover {
+          @include pol(.4rem $black_2, .2rem $gold_2);
+          @include shadow(4rem $gold_1);
+          transition: all .3s;
+        }
+
+        &--text {
+          @include abCenRot;
+          width: 100%;
+          text-align: center;
+          font-size: 1.8rem;
+          color: $black_2;
+        }
+      }
+
+
+      .right_nav {
+        @include tranRot(-45deg);
+        @include bg($gr_gold_1);
+        @include size(7rem, 7rem);
+        @include pol(.2rem $black_2, .4rem $gold_2);
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3rem;
+
+
+        &:hover {
+          @include pol(.4rem $black_2, .2rem $gold_2);
+          @include shadow(4rem $gold_1);
+          transition: all .3s;
+        }
+
+        &--title {
+          @include abCenRot;
+          width: 100%;
+          text-align: center;
+          font-size: 1.8rem;
+          color: $black_2;
+        }
+      }
+
+      .mid_nav {
+        @include tranRot(-45deg);
+        @include bg($gr_black_op);
+        display: inline-block;
+        margin: 0 3rem;
+        @include size(9rem, 9rem);
+        @include pol(.3rem $black_2, .3rem $gold_1);
+        animation-name: rotation;
+        animation-duration: 1s;
+
+        &:hover {
+          @include bg($gr_black_1);
+          @include pol(.3rem $black_2, .3rem $gold_2);
+          cursor: pointer;
+        }
+
+        .img {
+          @include abTRot(40%, 50%, -40%, -50%);
+          @include size(8rem, auto);
+          position: absolute;
+        }
+      }
+    }
+    .second_row {
+      @include abT(80%, 50%, -50%, -50%);
+      text-align: center;
+      .title {
+        font-size: 3rem;
+        color: $gold_1;
+      }
+      .sub {
+        font-size: 1.5rem;
+        color: $gold_1;
+      }
+    }
+  }
+  .intro_box {
+    position: relative;
+    margin: 0 auto 10rem auto;
+    .des-box {
+      @include bg($gr_silver);
+      width: 90vw;
+      min-height: 35rem;
+      margin: .5rem auto;
+      padding: 2rem 3rem;
+      border-radius: .4rem;
+      direction: rtl;
+      font-family: 'B_Yas';
+      text-align: justify;
+      font-size: 2.8rem;
+      animation-name: coming;
+      animation-duration: .5s;
+      transition: all 3s;
+      .title-box {
+        @include bg($gr_black_1);
+        @include tranRot(45deg);
+        @include size(10rem, 10rem);
+        @include pol(.3rem $white_1, .5rem $black_1);
+        margin: -7rem 2rem 3rem auto;
+        position: relative;
+        &:hover {
+          @include border(.7rem $white_1);
+        }
+        .text {
+          @include abRot-(0%, 50%, -50%, -50%);
+          width: 12rem;
+          text-align: center;
+          color: $white_1;
+        }
+      }
+      .des-btn {
+        @include bg($gr_black_1);
+        @include size(13rem, 3.5rem);
+        @include pol(.1rem $white_1, .1rem $black_1);
+        position: relative;
+        margin: 1rem auto;
+        text-align: center;
+        transition: all .2s;
+        &:hover {
+          @include border(.3rem $white_1);
+        }
+        .btn-icon {
+          @include abC;
+          color: $white_1;
+          font-size: 2.5rem;
+        }
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .nav-box {
+      margin: -5rem auto auto 10rem;
+      font-family: 'B_Yas';
+      .st-btn {
+        @include bgI($gr_black_1);
+        @include polI(.2rem $white_1, .2rem $black_1);
+        color: $white_1 !important;
+        transform: rotate(45deg) scale(1.2) !important;
+        transition: all .4s;
+      }
+      .un-btn {
+        // do nothing
+      }
+      .diamond {
+        @include bg($gr_gold_1);
+        @include size(2rem, 2rem);
+        @include tranRot(45deg);
+        @include pol(.2rem $white_1, .2rem $gold_2);
+        display: inline-block;
+        margin: 0 2rem;
+        transition: all .4s;
+        &:hover {
+          @include bgI($gr_black_1);
+          @include polI(.5rem $black_1, .5rem $white_1);
+          cursor: pointer;
+          color: $white_1 !important;
+          transform: rotate(45deg) scale(1.2) !important;
+          transition: all .4s;
+        }
+      }
+    }
+  }
+}
+.rebar-box {
+  @include fix;
+  @include bg(rgba($black_1, .95));
+  width: 100%;
+  max-height: 100%;
+  transition: all .6s;
+  .close-button {
+    @include abRight(2%, 2%);
+    cursor: pointer;
+    .button{
+      font-size: 3rem;
+      color: $red_1;
+    }
+  }
+
+  .text-box {
+    @include bg($gr_silver);
+    position: relative;
+    direction: rtl;
+    width: 90vw;
+    font-family: 'B_Yas';
+    margin: 10rem auto 0 auto;
+    padding: 7rem 1rem;
+    .title {
+      @include abTRot(0%, 50%, -50%, -50%);
+      @include size(12rem, 12rem);
+      @include bg($gr_gold_2);
+      @include pol(.4rem $black_2, .4rem $gold_2);
+      font-family: 'B_Yas';
+      z-index: 3;
+      .text {
+        @include abCenRot-;
+        width: 20rem;
+        color: $black_1;
+        font-size: 3rem;
+        text-align: center;
+      }
+    }
+    .text {
+      padding: 5rem;
+      margin: 0 auto;
+      font-size: 3rem;
+      text-align: justify;
+    }
+    .img-box {
+      text-align: center;
+      margin-top: -2rem;
+      .img {
+        @include size(17rem, 14rem);
+        @include pol(.1rem $white_1, .3rem $black_1);
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3rem;
+        &:hover {
+          @include pol(.3rem $white_1, .5rem $black_1);
+        }
+      }
+    }
+  }
+  .more-btn {
+    @include bg($gr_black_1);
+    @include size(20rem, 3.5rem);
+    @include pol(.1rem $white_1, .3rem $black_1);
+    cursor: pointer;
+    position: relative;
+    margin: 3rem auto;
+    text-align: center;
+    transition: all .2s;
+    &:hover {
+      border: solid .3rem $white_1;
+    }
+    &-icon {
+      @include abC;
+      color: $white_1;
+      font-size: 2.5rem;
+    }
+  }
+}
+.team-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba($black_1, .95);
+  width: 100%;
+  height: 100vh;
+  z-index: 5;
+  transition: all .6s;
+
+  .close-button {
+    cursor: pointer;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+
+    .button {
+      font-size: 3rem;
+      color: $red_1;
+    }
+  }
+
+  .text-box {
+    position: relative;
+    background: $gr_silver;
+    width: 90vw;
+    height: 80vh;
+    font-family: 'B_Yas';
+    margin: 10rem auto;
+    padding: 7rem 1rem;
+
+    .box_title {
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      width: 12rem;
+      height: 12rem;
+      transform: translate(-50%, -50%) rotate(45deg);
+      background: $gr_gold_2;
+      border: solid .4rem $black_2;
+      outline: solid .4rem $gold_2;
+      font-family: 'B_Yas';
+      z-index: 3;
+
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        color: $black_1;
+        font-size: 3rem;
+        width: 20rem;
+        text-align: center;
+      }
+    }
+
+    .text {
+      position: absolute;
+      top: 20%;
+      right: 0;
+      font-size: 3rem;
+      text-align: justify;
+      direction: rtl;
+      padding: 5rem;
+    }
+  }
+}
+@media(max-width: 768px) {
+  .des-box {
+    padding: 8rem 3rem !important;
+  }
+  .intro_box .nav-box {
+    text-align: center !important;
+    margin: -5rem auto !important;
+  }
+}
+@media(min-width: 1600px) {
+  .right_nav {
+    left: 64% !important;
+  }
+  .left_nav {
+    left: 36% !important;
+  }
+}
