@@ -11,6 +11,8 @@ import { CommentManager } from "../models/comments/commentManager.model";
 import { Trash } from "../models/articles/trash.model";
 import { Password } from "../models/authors/password.model";
 import { Comment } from "../models/comments/comment.model";
+import { MessageService } from './message.service';
+import { Message } from '../models/message.model';
 //#endregion
 
 @Injectable()

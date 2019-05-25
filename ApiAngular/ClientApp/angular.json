@@ -27,9 +27,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/summernote/dist/summernote-lite.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/tether/dist/js/tether.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/summernote/dist/summernote-lite.js",
+              "node_modules/summernote/dist/summernote-ext-rtl.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
