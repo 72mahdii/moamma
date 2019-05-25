@@ -1,0 +1,28 @@
+<app-welcome></app-welcome>
+<app-settings></app-settings>
+<app-dashboard></app-dashboard>
+<section class="section">
+  <router-outlet></router-outlet>
+  <div id="pop" class="popup-message hide">
+    <span class="close-btn" (click)="onClose()"><i class="fa fa-close"></i></span>
+    <div class="message-text">
+      ارتباط با سرور برقرار است.
+    </div>
+
+  </div>
+</section>
+<div class="loading-box" id="login">
+  <div class="loading">
+
+    <div class="text">
+    بارگزاری اطلاعات
+    </div>
+
+  </div>
+</div>
+
+<div class="waiting-box hide" id="wait">
+  <span class="wait-text">
+    لطفا شکیبا باشید
+  </span>
+</div>

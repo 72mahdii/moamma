@@ -1,0 +1,14 @@
+@import '../../../scss/importer';
+.password-box {
+  background: $dark_1;
+  padding: 4rem 0;
+}
+
+button, input, a, h5, select {
+  font-family: 'B_Esfehan';
+  font-size: 2rem;
+}
+
+h5{
+  font-size: 1.7rem;
+}

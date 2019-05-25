@@ -1,0 +1,217 @@
+@import '../../scss/importer';
+
+.box {
+  padding: 2rem 0;
+  .cmt-header {
+    // @include bg($blue_3);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    font-size: 2.5rem;
+    font-family: 'B_Esfehan';
+    text-align: right;
+    color: $white_1;
+    padding: 1rem 2rem;
+    margin-bottom:0;
+    direction: rtl;
+  }
+  .comment-manager {
+    // @include border(.2rem $blue_3);
+    @include bg($black_4);
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    .unread-cmt {
+      padding: 2rem 3rem;
+      direction: rtl;
+    }
+  }
+}
+.custom-btn {
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  @include size(3rem, 3rem);
+  // @include bg($red_1);
+  @include border(.1rem rgba($white_1, .2));
+  border-radius: .5rem;
+  margin: 1rem auto;
+  // opacity: .5;
+  i{
+    @include abC;
+    color:$white_1;
+  }
+}
+.custom-btn-c {
+  @extend .custom-btn;
+}
+.fox-container {
+  text-align: center;
+  .fox-btn {
+    @include size(20rem, 5rem);
+    display: inline-block;
+    position: relative;
+    border-radius: .5rem;
+    margin: 1rem;
+    &:hover {
+      cursor: pointer;
+      transform:scale(1.02);
+    }
+    .fox-btn-text {
+      @include abC;
+      font-family: 'B_Esfehan';
+      font-size: 1.5rem;
+    }
+  }
+}
+.fox-blue-btn {
+  @include bg($blue_3);
+  @include border(.1rem $blue_4);
+  color: $white_1;
+}
+.fox-white-btn {
+  @include bg($white_1);
+  @include border(.1rem rgba($dark_1,.3));
+  color:  $black_1;
+}
+.tb-head {
+  // @include bg($red_1);
+  border-radius: .5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.tb-body {
+  border-radius: .5rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  @include bg($white_1);
+}
+.tb-r-body {
+  border-left:solid .1rem $red_1;
+  border-right:solid .1rem $red_1;
+  border-bottom:solid .1rem $red_1;
+}
+.c-head {
+  font-family: 'B_Nazanin';
+  font-weight: bold;
+  font-size: 2rem;
+  color: $white_1;
+  text-align: center;
+  padding: .5rem;
+}
+.c-body {
+  font-family: 'B_Nazanin';
+  font-size: 2rem;
+  text-align: justify;
+  color: $black_1;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+.r-head {
+  font-family: 'B_Nazanin';
+  font-weight: bold;
+  font-size: 2rem;
+  color: $white_1;
+  text-align: center;
+  padding: .5rem;
+}
+.r-body {
+  font-family: 'B_Nazanin';
+  font-size: 2rem;
+  text-align: justify;
+  color: $black_1;
+  padding: .5rem;
+}
+.reply-box {
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding: 1rem;
+  font-family: 'B_Esfehan';
+  @include size(40rem, auto);
+  @include bg($white_1);
+  @include shadow(.4rem $blue_3);
+  &-title {
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: right;
+    border-bottom: solid .1rem $blue_3;
+  }
+  button {
+    font-family: 'B_Esfehan';
+  }
+  .msg-text {
+    width: 100%;
+    direction: rtl;
+    font-family: 'B_Esfehan';
+    padding: .5rem;
+    font-size: 1.5rem;
+    &::placeholder {
+      padding: .5rem 1rem;
+      font-size: 1.5rem;
+      color: $gray_1;
+    }
+  }
+}
+.off {
+  visibility: hidden;
+  opacity: 0;
+}
+.on {
+  visibility: visible;
+  opacity: 1;
+}
+.no-cmt {
+  padding: 2rem;
+  font-family: 'B_Esfehan';
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 1rem auto;
+  color: $red_1;
+}
+.sp {
+  @include size(100%, 2rem);
+  @include bg($white_1);
+  margin: 3rem auto;
+}
+
+.blue-header {
+  @include bg($blue_3);
+  @include border(.1rem $blue_3);
+}
+
+.green-header {
+  @include bg($blue_5);
+  @include border(.1rem $blue_5);
+
+}
+
+.blue-border {
+  @include border(.2rem $blue_3);
+}
+
+.green-border{
+  @include border(.2rem $blue_5);
+}
+
+.tb-head-red, .r-head-red {
+  @include bg($red_1);
+}
+.tb-head-green, .r-head-green {
+  @include bg($blue_5);
+}
+
+.master-title {
+  @include bg($blue_5);
+  font-family: 'B_Esfehan';
+  font-size: 3rem;
+  direction: rtl;
+  padding: 2rem 1rem;
+  border-radius: .5rem;
+  color: $dark_1;
+}
+
+.tb-r-body-blue {
+  border-left: solid .1rem $blue_5;
+  border-right: solid .1rem $blue_5;
+  border-bottom: solid .1rem $blue_5;
+}

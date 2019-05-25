@@ -1,0 +1,237 @@
+@import '../../scss/importer';
+$fox_1: #ca7d3d;
+
+.home {
+  @include bg($dark_1);
+  padding: 2rem;
+
+  .nav-box {
+    @include bg($gr_home);
+    padding: 2rem;
+    .title-box {
+      position: relative;
+      margin: 0 auto;
+      .img-box{
+        display: inline-block;
+        margin-right: 1rem;
+        &--img{
+          @include size(10rem, 10rem);
+          border-radius: 100%;
+          border:solid .2rem $fox_1;
+        }
+      }
+      .title-text {
+        @include abLeftT(50%, 25%, 0%, -50%);
+        display: inline-block;
+        font-family: 'Guardians';
+        font-size: 2rem;
+        color:$fox_1;
+      }
+    }
+
+    .nav-section {
+      @include size(100%, 10rem);
+      text-align: center;
+      &--list {
+        @include abLeftT(50%, 10%, 0, -50%);
+        @include size(100%, auto);
+        &_item {
+          display: inline-block;
+          margin: .5rem 3rem;
+          font-family: 'Guardians';
+          font-size: 2rem;
+          font-style: italic;
+          transition: all .3s;
+          cursor: pointer;
+          &:hover {
+            border-bottom: .1rem solid $fox_1;
+            padding-bottom:.3rem;
+          }
+        }
+        .white{
+          color: $white_1;
+        }
+        .red {
+          color: $red_1;
+        }
+      }
+    }
+  }
+  .god-box{
+    // border: solid .2rem $red_1;
+    border-radius: .5rem;
+    @include bg($gr_black_2);
+    margin: .5rem auto;
+    .img-box {
+      @include size(100%, 100%);
+      position: relative;
+      &--img {
+        border-radius: 100%;
+        border: solid $dark_2 .3rem;
+        @include abC;
+        @include size(10rem, 10rem);
+      }
+    }
+
+    .user-box{
+      @include size(100%, 100%);
+      position: relative;
+      &--text {
+        @include abC;
+        // font-family: "Guardians";
+        font-size: 3rem;
+        font-weight: bold;
+        padding:2rem;
+        text-align: center;
+        color: $white_1;
+      }
+    }
+
+    .setting-box {
+      text-align: center;
+      .god-btn {
+        border:none;
+        outline:none;
+        @include size(25rem, 4rem);
+        display: inline-block;
+        margin: 1rem 1rem;
+        font-family: 'Guardians';
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all .3s;
+        &:hover {
+          border-radius: .2rem;
+          transform: scale(.97);
+        }
+      }
+
+      .god-blue{
+        @include bg($blue_3);
+        color: $white_1;
+      }
+      .god-green{
+        @include bg($green_1);
+        color: $dark_1;
+      }
+      .god-red {
+        @include bg($red_1);
+        color: $white_1;
+      }
+    }
+  }
+}
+
+
+.change-pass-bg {
+  @include rawFix;
+  @include bg(rgba($black_4, .8));
+  @include size(100vw, 100vh);
+  z-index: 70;
+  transition: all .4s;
+  .change-pass-form {
+    @include abC;
+    @include bg($white_1);
+    padding: 2rem;
+    text-align: center;
+
+    .change-pass-title {
+      font-family: 'Guardians';
+      font-size: 2rem;
+      color: $black_4;
+      text-align: center;
+      padding: 1rem;
+      border-bottom: solid .1rem rgba($black_4, .6);
+      margin: 2rem;
+      margin-top:0;
+    }
+    .custom-input {
+      display: block;
+      @include border(.1rem $dark_2);
+      border-radius: .5rem;
+      outline:none;
+      @include size(100%, 4rem);
+      @include bg($dark_1);
+      padding: .5rem;
+      color: $white_1;
+      font-size: 2rem;
+      margin: .3rem 0;
+      &::placeholder{
+        font-family: 'Guardians';
+        font-size: 1rem;
+        padding: .5rem;
+        color: $blue_5;
+      }
+    }
+
+    .custom-btn {
+      display: block;
+      outline:none;
+      border:none;
+      @include size(20rem, 4rem);
+      font-family: 'Guardians';
+      font-size: 1.5rem;
+      padding: 1rem;
+      margin: 1rem auto;
+      transition: all .4s;
+      cursor: pointer;
+      &:hover {
+        border-radius: .5rem;
+        transform: scale(.96);
+      }
+    }
+    .custom-btn-blue {
+      @include bg($blue_1);
+      color: $white_1;
+    }
+    .custom-btn-white {
+      @include bg($blue_5);
+      color : $dark_1;
+    }
+  }
+}
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+.forbiden-bg {
+  @include bg($red_1);
+  @include rawFix;
+  @include size(100vw, 100vh);
+  z-index: 500;
+  .forbiden-message {
+    @include abC;
+    font-family: 'Guardians';
+    font-size: 1.5rem;
+    text-align: center;
+    color: $gold_2;
+    @include border(.4rem $gold_2);
+    border-radius: .5rem;
+    @include bg($dark_2);
+    @include size(40rem, 20rem);
+    .text{
+      @include abC;
+      @include size(100%, auto);
+      padding: 1rem;
+    }
+    .back-link {
+      position: absolute;
+      bottom:3rem;
+      left:50%;
+      transform: translate(-50%, -50%);
+      font-size: 1rem;
+      color: $white_1;
+      font-style : italic;
+      cursor: pointer;
+      transition: all .3s;
+      &:hover {
+        font-size: 1.1rem;
+        opacity: .9;
+        color: $blue_2;
+      }
+    }
+  }
+}

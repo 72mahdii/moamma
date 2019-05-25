@@ -1,0 +1,38 @@
+<div class="articles">
+  <div class="articles_list">
+    <div class="container">
+      <div class="item" *ngFor="let article of articlesList">
+        <div class="row align-items-center">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <span class="title">
+              {{ article?.title | slice:0:20 }}...
+            </span>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-end">
+            <div class="item--info">
+              <span class="date">
+                <i class="fa fa-calendar"></i>
+                {{ article?.crtDate | slice:0:10 }}
+              </span>
+              <span class="state">
+                <!-- Condition For Archived or not Archived-->
+                <i class="fa fa-archive" *ngIf="article.archive"></i>
+                <i class="fa fa-check-square" *ngIf="!article.archive"></i>
+              </span>
+              <span class="comment" routerLink="../article-comments/{{article?.id}}">
+                <i class="fa fa-comment"></i>
+                {{ article?.comments.length }}
+              </span>
+              <span class="trash" (click)="onTrash(article)">
+                <i class="fa fa-trash"></i>
+              </span>
+              <a class="cog" routerLink="../create-article/{{article?.id}}">
+                <i class="fa fa-cog"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

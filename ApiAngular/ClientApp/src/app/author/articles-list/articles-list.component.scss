@@ -1,0 +1,76 @@
+@import '../../scss/importer';
+
+.articles {
+  @include bg($gr_black_1);
+  padding: 2rem 1rem;
+  .articles_list {
+    padding: 4rem 3rem;
+    .item {
+      @include bg($blue_2);
+      direction: rtl;
+      font-family: 'B_Esfehan';
+      border-radius: .5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+      &:hover {
+        @include bg($green_1);
+        transition: all .2s;
+        border-radius: 0;
+      }
+      .title {
+        color: $dark_1;
+        font-size: 2rem;
+        border-right: none;
+      }
+      .item--info {
+        display: inline-block;
+        .trash{
+          color: $red_1 !important;
+        }
+        .trash i:hover {
+          cursor: pointer;
+          transform: scale(1.4);
+          transition: all .3s;
+        }
+
+        .comment {
+          color: $gold_3;
+        }
+
+        .comment i:hover {
+          cursor: pointer;
+          transform: scale(1.4);
+          transition: all .3s;
+        }
+        .cog {
+          color: $blue_1 !important;
+        }
+
+        .cog i:hover {
+          cursor: pointer;
+          transform: scale(1.4);
+          transition: all .3s;
+        }
+
+        .cog:active {
+          transform: scale(1);
+        }
+      }
+
+      .item--info *:not(i) {
+        display: inline-block;
+        padding: 0 2rem;
+        color: $dark_1;
+        border-right: solid .2rem $dark_2;
+        font-size: 3rem;
+      }
+
+
+    }
+  }
+}
+
+
+
+
+

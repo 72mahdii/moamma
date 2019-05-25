@@ -1,0 +1,325 @@
+@import '../../scss/importer';
+@import '../../scss/animations/animations';
+
+.header {
+  position: relative;
+  direction: rtl;
+  background-image: $gr_black_2;
+  padding: 0 5rem;
+  padding-top: 2rem;
+
+  .logo-box {
+    position: relative;
+    direction: ltr;
+    background-image: $gr_black_op;
+    transform: rotate(45deg);
+    border: solid rgba($gold_1, .25) .4rem;
+    width: 6.5rem;
+    height: 6.5rem;
+    margin: 0 auto;
+    margin-left: 1rem;
+    animation-name: rotation;
+    animation-duration: 1s;
+    backface-visibility: hidden;
+
+    &:hover {
+      background-image: $gr_black_2;
+      border: solid $gold_1 .4rem;
+      transform: scale(1.1) rotate(45deg);
+      transition: all .3s;
+    }
+
+    .logo-img {
+      position: absolute;
+      height: 4rem;
+      transform: rotate(-45deg);
+      top: 1%;
+      right: 11%;
+    }
+  }
+
+  .title-box {
+    position: relative;
+    color: $gold_1;
+    width: 36rem;
+    height: 8rem;
+    font-family: 'B Yas';
+    animation-name: coming;
+    animation-duration: 1s;
+
+    &--primary {
+      position: absolute;
+      font-size: 2.5rem;
+      top: 10%;
+      right: 0;
+    }
+
+    &--sub {
+      position: absolute;
+      top: 55%;
+      right: 0;
+      font-size: 1.3rem;
+    }
+  }
+
+  &_nav-box {
+    position: absolute;
+    font-family: 'B Yas';
+    top: 59%;
+    left: 10%;
+
+    &--item {
+      cursor: pointer;
+      display: inline-block;
+      background: $gr_gold_2;
+      width: 8rem;
+      height: 8rem;
+      margin: 0 3rem;
+      border: solid .4rem $black_3;
+      outline: solid .4rem $gold_3;
+      transform: rotate(-45deg);
+
+      &:hover {
+        transform: rotate(-45deg) scale(1.1);
+        transition: all .3s;
+      }
+
+      &-link {
+        position: absolute;
+        display: inline-block;
+        top: 29%;
+        right: -1%;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: $black_3;
+        transform: rotate(45deg);
+      }
+    }
+
+    .active-nav {
+      background-image: $gr_silver;
+      border: solid $black_3 .4rem;
+      outline: solid $white_1 .4rem;
+      box-shadow: 0 0 4rem $black_3;
+    }
+  }
+}
+
+.joint-box {
+  background: linear-gradient(105deg,
+      #444 0%,
+      #444 50%,
+      #2b2b2c 50%);
+  direction: rtl;
+  padding: 2rem 5rem;
+  padding-bottom: 20rem;
+
+  &_title-box {
+    position: relative;
+    background: $gr_gold_2;
+    width: 10rem;
+    height: 10rem;
+    border: solid .3rem $white_1;
+    outline: solid .5rem $gold_2;
+    transform: rotate(45deg);
+    margin: 5rem auto;
+    margin-bottom: -5rem;
+
+    &--text {
+      position: absolute;
+      top: 0%;
+      left: 45%;
+      width: 12rem;
+      text-align: center;
+      font-family: 'B_Yas';
+      font-weight: bold;
+      font-size: 2rem;
+      transform: rotate(-45deg) translate(-50%, -50%);
+    }
+  }
+
+  &_content-box {
+    background: $gr_silver;
+    padding: 2rem 3rem;
+    font-family: 'B_Nazanin';
+    padding-top: 10rem;
+
+    .head-title {
+      font-size: 3.4rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      margin-top: 5rem;
+    }
+
+
+    .sub-head-title {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .img-box-v1 {
+      text-align: center;
+
+      .img-01,
+      .img-02 {
+        display: inline-block;
+        margin: 0 auto;
+        width: 70rem;
+        height: auto;
+      }
+
+      .img-01-text,
+      .img-02-text {
+        display: block;
+        margin: 2rem auto;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+
+    }
+
+    .text {
+      font-size: 2.2rem;
+      line-height: 1cm;
+      text-align: justify;
+    }
+
+
+  }
+}
+
+table {
+  font-size: 2.2rem;
+  margin: 3rem auto;
+
+  thead {
+    background: $gr_gold_2;
+    color: $black_3;
+
+    th {
+      text-align: center;
+    }
+  }
+
+  tbody {
+    #thething {
+      background: $gr_red;
+    }
+  }
+}
+
+.reference-box {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem 1rem;
+
+  img {
+    margin: 2rem 2rem;
+    border: solid .1rem $white_1;
+    outline: solid .3rem $black_3;
+    opacity: .9;
+  }
+
+  &-img-01 {
+    display: inline-block;
+    width: 15rem;
+    height: 25rem;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  &-img-02 {
+    display: inline-block;
+    width: 15rem;
+    height: 25rem;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  &-img-03 {
+    display: inline-block;
+    width: 20rem;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+}
+
+.list-box {
+  font-size: 2.2rem;
+  padding: 0 1rem;
+  margin: 0 2rem;
+  margin-bottom: 5rem;
+  list-style-type: none;
+
+  .list-box-item:before {
+    content: "*";
+    color: $black_3;
+    // margin: 1rem 0;
+  }
+
+}
+
+@media(max-width: 768px) {
+
+  .header {
+    padding-top: 6rem !important;
+    padding-bottom: 1rem !important;
+
+    .logo-box {
+      margin: 0 auto !important;
+    }
+
+    .title-box {
+      position: relative;
+      margin: 4rem auto;
+      margin-bottom: 1rem;
+      text-align: center;
+
+      &--primary {
+        position: initial !important;
+      }
+
+      &--sub {
+        position: initial !important;
+      }
+    }
+
+    &_nav-box {
+      position: initial !important;
+      text-align: center;
+      margin: 1rem auto;
+    }
+  }
+
+  .img-01,
+  .img-02 {
+    width: 40rem !important;
+    height: auto !important;
+  }
+}
+
+@media(max-width:480px) {
+  .header {
+    &_nav-box {
+      &--item-link {
+        top: 37% !important;
+        right: -2% !important;
+      }
+    }
+  }
+}

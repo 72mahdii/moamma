@@ -1,0 +1,35 @@
+@import '../../../scss/importer';
+.settings {
+  direction: rtl;
+  background: $blue_4;
+  padding: 1rem 3rem;
+  .box {
+    color: $blue_2;
+    .item,
+    .item:visited {
+      cursor: pointer;
+      display: inline-block;
+      font-family: 'B_Esfehan';
+      font-size: 1.8rem;
+      margin: 0 3rem;
+      transition: all .3s;
+      color: $blue_2;
+    }
+
+    .item:hover {
+      transform: scale(.9);
+      text-decoration: none;
+      color: $blue_2;
+    }
+
+    .item:active {
+      transform: scale(1);
+      color: $blue_2;
+      text-decoration: none;
+    }
+  }
+}
+
+.out{
+  color: $red_2 !important;
+}

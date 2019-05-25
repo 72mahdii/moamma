@@ -1,0 +1,196 @@
+<div class="create-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h3 class="form-header">ایجاد مقاله جدید</h3>
+        <form
+          [formGroup]="articleForm"
+          class="article-form">
+          <!-- First Row [Title, Category, Tag] -->
+          <div class="row py-2">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+              <!-- Article Title Input -->
+              <input
+                type="text"
+                placeholder="عنوان مقاله"
+                class="form-control form-control-lg"
+                formControlName="title"
+                >
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+              <!-- Article Category Input -->
+              <select
+                class="custom-select form-control-lg "
+                formControlName="category"
+                >
+                <option selected>دسته بندی مقاله</option>
+                <option value="geo">ژئوتکنیک</option>
+                <option value="mng">مدیریت ساخت</option>
+                <option value="earth">سازه</option>
+                <option value="other">متفرقه</option>
+              </select>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+              <!-- Article Tag -->
+              <select
+                class="custom-select form-control-lg "
+                formControlName = "tag"
+                >
+                <option>تگ مقاله</option>
+                <option value="els">ELSEVIER</option>
+                <option value="spr">SPRINGER</option>
+                <option value="none" selected>بدونه تگ</option>
+              </select>
+            </div>
+          </div>
+          <!-- Second Row [Summary] -->
+          <div class="row py-2">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <!-- Article Summary -->
+              <textarea
+                name=""
+                cols="30"
+                rows="4"
+                class="form-control form-control-lg"
+                placeholder="خلاصه مقاله(جهت نمایش در لیست مقالات)"
+                formControlName="summary"
+                ></textarea>
+            </div>
+
+          </div>
+          <!-- CKEdito Article Content -->
+          <div class="row py-2">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <!-- Rich Text Editor Comming Here -->
+              <div class="text-editor">
+                <div
+                  formControlName ="content"
+                  name="content" [ngxSummernote]="onConfig"
+                  ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row py-2">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+              <button
+                class="btn btn-success btn-lg btn-block my-2"
+                type="button"
+                [disabled]="!articleForm.valid"
+                (click)="onSubmit()"
+                >ارسال</button>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+              <button
+                class="btn btn-primary btn-lg btn-block my-2"
+                type="button"
+                [disabled]="!articleForm.valid"
+                (click)="onSubmit('archive')"
+                >آرشیو</button>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+              <button
+                class="btn btn-info btn-lg btn-block my-2"
+                type="button"
+                (click)="onShowPreShow()"
+                >پیش نمایش</button>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+              <button
+                routerLink="/authors/index/repository"
+                class="btn btn-secondary btn-lg btn-block my-2"
+                type="button"
+                >انصراف</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="home close-it" id="home">
+
+  <header class="header">
+    <div class="row d-flex justify-content-center">
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+        <!-- Logo -->
+        <div class="logo-box">
+          <img src="assets/logo.png" alt="moammapey-logo" class="logo-img">
+        </div>
+      </div>
+      <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
+        <!-- Titles -->
+        <div class="title-box">
+          <h3 class="primary">گروه فنی و مهندسی معما پی</h3>
+          <h5 class="sub">ایمن بسازید سالم بمانید</h5>
+        </div>
+      </div>
+    </div>
+    <div class="nav-box">
+      <div class="item" (click)="onClosePreShow()">
+        <a class="item-link">بستن</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="details">
+    <!-- Details Box -->
+    <div class="details_box">
+      <!-- Detail's Header-->
+      <div class="box-header">
+        <!-- Detail's Title -->
+        <div class="article-title">
+          {{ article?.title }}
+        </div>
+        <!-- Detail's About the Article -->
+        <div class="info-box">
+          <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-flex justify-content-center">
+              <!-- Category Details -->
+              <div class="category-box">
+                <div class="icon-box">
+                  <img src="assets/category.png" alt="" class="icon">
+                </div>
+                <span class="text">
+                  {{ article?.category }}
+                </span>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-flex justify-content-center">
+              <!-- Creation Date Info -->
+              <div class="date-box">
+                <div class="icon-box">
+                  <img src="assets/calendar.png" alt="" class="icon">
+                </div>
+                <span class="text">
+                  2019-23-04
+                </span>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-flex justify-content-center">
+              <!-- Author Info -->
+              <div class="author-box">
+                <span class="name">
+                  نام نویسنده
+                </span>
+                <div class="author-img">
+                  <img src="assets/user.png" alt="" class="img">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Detail's Content -->
+      <div
+        class="content" id="article_content"
+        [ngxSummernoteDisabled]='true'
+        [ngxSummernote]='config_show'
+        [(ngModel)]="article.content">
+
+      </div>
+
+    </div>
+  </section>
+</div>

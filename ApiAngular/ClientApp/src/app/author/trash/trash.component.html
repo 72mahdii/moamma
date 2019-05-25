@@ -1,0 +1,52 @@
+<div class="deleted">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="article_box">
+          <div class="border">
+            <div class="caption">مقالات حذف شده</div>
+          </div>
+          <div class="content">
+            <div class="articles">
+              <div class="list-box">
+                <div class="container">
+                  <!-- Loop -->
+                  <div class="item" *ngFor="let trash of trashes">
+                    <div class="row align-items-center">
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <span
+                          class="title">
+                          {{ trash?.title | slice:0:25 }}...
+                        </span>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-end">
+                        <div class="info">
+                          <span class="date">
+                            <i class="fa fa-calendar"></i>
+                            {{ trash?.crtDate | slice:0:10}}
+                          </span>
+                          <a class="state"
+                            (click)="onDelete(trash?.id)">
+                            <i class="fa fa-trash"></i>
+                          </a>
+                          <a class="cog "
+                            (click)="onUndo(trash)">
+                            <i class="fa fa-undo"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="no-trash" *ngIf="trashes.length == 0">
+                    سطل زباله مقالات خالی است.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

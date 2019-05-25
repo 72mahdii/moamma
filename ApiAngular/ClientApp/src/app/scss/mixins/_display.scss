@@ -1,0 +1,132 @@
+// Absolute Position
+@mixin abCenRot {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%,) rotate(45deg);
+}
+@mixin abCenRot- {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%, ) rotate(-45deg);
+}
+@mixin abRot-($top, $left, $first, $sec) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: rotate(-45deg) translate($first, $sec);
+}
+@mixin ab-Rot($top, $left, $first, $sec) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform:translate($first, $sec) rotate(-45deg);
+}
+@mixin abTRot($top, $left, $first, $sec) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate($first, $sec) rotate(45deg);
+}
+@mixin abT($top, $left, $first, $sec) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate($first, $sec);
+}
+@mixin abC {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+@mixin abLeft($top, $left) {
+  position: absolute;
+  left: $left;
+  top: $top;
+}
+@mixin abRight($top, $right) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+@mixin abRightR($top, $right, $deg){
+  @include abRight($top, $right);
+  transform: rotate($deg);
+}
+@mixin abLeftR($top, $left, $deg) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: rotate($deg);
+}
+@mixin abRightT($top, $right, $first, $second) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  transform: translate($first, $second);
+}
+
+@mixin abLeftT($top, $left, $first, $second) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate($first, $second);
+}
+
+// fix position
+@mixin fix {
+  position: fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  z-index: 5;
+  overflow-y: scroll;
+}
+
+@mixin rawFix {
+  position: fixed;
+  top:0;
+  left:0;
+}
+
+// box-shadow
+@mixin shadow($content){
+  box-shadow: 0 0 $content;
+}
+
+
+// wdith and height
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// padding with padding-bottom
+@mixin padB($first, $second) {
+  padding: $first;
+  padding-bottom: $second;
+}
+
+// border and outline
+@mixin pol($first, $second){
+  border: solid $first;
+  outline: solid $second;
+}
+@mixin polI($first, $second) {
+  border: solid $first !important;
+  outline: solid $second !important;
+}
+@mixin border($content) {
+  border: solid $content;
+}
+@mixin outline($content) {
+  outline: solid $content;
+}
+
+// raw transform
+@mixin tranRot($deg) {
+  transform : rotate($deg);
+}

@@ -1,0 +1,152 @@
+<div class="home" id="home">
+   <section class="header_box">
+     <!-- First Row -->
+     <div class="first_row">
+       <a class="left_nav" (click)="onActive('rebar')">
+         <div class="left_nav--text">میلگرد بستر</div>
+       </a>
+       <div class="mid_nav" routerLink="/">
+         <img src="assets/logo.png" alt="" class="img">
+       </div>
+       <a class="right_nav" (click)="onActive('team')">
+         <div class="right_nav--title">تیم معما</div>
+       </a>
+     </div>
+     <!-- Second Row -->
+     <div class="second_row">
+       <div class="title">گروه فنی و مهندسی معما پی</div>
+       <div class="sub">ایمن بسازید سالم بمانید</div>
+     </div>
+   </section>
+   <section class="intro_box">
+     <div class="des-box toggle-show">
+       <div class="title-box">
+         <div class="text">
+           ژئوتکنیک
+         </div>
+       </div>
+       <div class="des">
+         همه چیزهایی که در اطراف خودتان می بینید توسط خاک یا سنگ پشتیبانی می شوند، که مهندسان ژئوتکنیک در قبال آن ها
+         مسئول هستند. هر چیزی که توسط خاک یا سنگ پشتیبانی نمی شود، چه شناور باشد ، چه در اوج پرواز باشد در نهایت سقوط
+         خواهد کرد .
+         در ژئوتکنیک، به توضیح مکانیک خاک و سنگ و کاربردهای آن در پیشرفت و توسعه زندگی انسان می پردازدیم.
+         مهندسی ژئوتکنیک بدون هیچ محدودیتی شامل، تجزیه و تحلیل، طراحی و ساخت شالوده ها، شیب ها، سازه های نگهدارنده،
+         دیوار
+         های خاکی، جاده ها، تونل ها، بنادر و دیگر سیستم های ساخته شده توسط خاک یا سنگ می شود.
+       </div>
+       <div class="des-btn" routerLink="/blog/geo">
+         <a class="btn-icon">
+           مقالات
+         </a>
+       </div>
+     </div>
+     <div class="des-box toggle-hide">
+       <div class="title-box">
+         <div class="text">
+           مدیریت ساخت
+         </div>
+       </div>
+       <div class="des">
+         تمام تلاش مدیریت ساخت در حوزه ساخت بهینه سازی هزینه ‌های ساخت برای ذی نفعان یک پروژه می باشد. با توجه به اینکه
+         هر پروژه ویژگی های منحصر به فرد خودش را دارد می بایست در راستای افزایش راندمان پروژه ها و حداکثر سازی سود با
+         کمترین میزان هزینه در پروژه ها به بهینه ترین حالت یک سیستم در پروژه رسید. این امر میسر نمیشود مگر با تلاش همه
+         ذی
+         نفعان پروژه و در راستای اقداماتی که می تواند بر روی عملکرد یک پروژه تاثیر گذار باشد. در این راستا تلاش می کنیم
+         تا با معرفی مناسب ترین مقالات و مرجع ها و روش های مفید در حوزه ساخت گامی موثر در حوزه ساخت در کشور عزیزمان
+         برداریم.
+       </div>
+       <div class="des-btn" routerLink="/blog/mng">
+         <a class="btn-icon">
+           مقالات
+         </a>
+       </div>
+     </div>
+     <div class="des-box toggle-hide">
+       <div class="title-box">
+         <div class="text">
+           سازه
+         </div>
+       </div>
+       <div class="des">
+         مهندسی زلزله (Earthquake Engineering) زمینه‌ای ‌ست بسیار متنوع و وسیع شامل مجموعه‌ای بزرگ از دانش‌ها و فنون
+         گوناگون که حول اهداف حیاتی مربوط به مطالعه، طراحی، اجراء، کنترل، و نگهداری انواع سازه‌ها و پروژه‌های عمرانی در
+         مقابل تأثیرات نیروها و بارهای ناشی از وقوع زمین‌لرزه های احتمالی و حصول هرچه افزون‌تر اطمینان از حداقل بودن
+         خسارات وارد آمده، با هم جمع آمده‌اند.
+         هدف ما آشنایی و طراحی و اجرای تکنولوژی های نوین در صنعت ساخت و ساز و استفاده از مصالح جدید برای کارایی های بهتر
+         و موثرتر در باربری سازه و همچنین چشم انداز بهتر از نقطه نظر معماری می باشد.
+       </div>
+       <div class="des-btn" routerLink="/blog/earth">
+         <a class="btn-icon">
+           مقالات
+         </a>
+       </div>
+     </div>
+     <div class="nav-box">
+       <a class="diamond st-btn" (click)="onToggle(2)">
+       </a>
+       <a class="diamond un-btn" (click)="onToggle(0)">
+       </a>
+       <a class="diamond un-btn" (click)="onToggle(1)">
+       </a>
+     </div>
+   </section>
+</div>
+<div class="rebar-box deactive" id="rebar">
+  <div class="text-box">
+    <a class="close-button" (click)="onClose('rebar')">
+      <span class="button">
+        <i class="fa fa-close"></i>
+      </span>
+    </a>
+    <div class="title">
+      <div class="text">میلگرد بستر</div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text">
+          تسلیح دیوارهای ساخته شده با مصالح بنایی و اتصال مناسب آن به سازه ضروری بوده که بدین منظور روش های مختلفی مورد
+          استفاده
+          قرار می گیرد که از این میان ، یکی از روش های فنی و اقتصادی مناسب ، استفاده از
+          مجموعه میلگرد بستر و قطعات اتصالی به
+          منظور پایداری دیوارها و اتصال آن به سازه می باشد...
+          <div class="more-btn" routerLink="/joint">
+            <a class="more-btn-icon" routerLink="/joint">
+              بیشتر بخوانید
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 justify-items-center">
+        <div class="img-box">
+          <img src="../../assets/1.png" alt="" class="img">
+          <img src="../../assets/2.png" alt="" class="img">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="team-box deactive" id='team'>
+  <div class="text-box">
+    <a class="close-button" (click)="onClose('team')">
+      <span class="button">
+        <i class="fa fa-close"></i>
+      </span>
+    </a>
+    <div class="box_title">
+      <div class="text">درباره معما</div>
+    </div>
+    <div class="text">
+      گروه فنی مهندسی معما پی از اواخر سال 1395 در حوزه ساخت در استان قم و تهران مشغول به فعالیت می باشد .
+      این شرکت با اتکاء به گنجینه علمی و تجربی مدیران خود در زمینه های طراحی و اجرا،
+      افتخار اجرای پروژه هایی موفق در سطح
+      استان قم و تهران را داراست.
+      ساختار مدیریتی این مجموعه همواره در تلاش بوده است که بصورت پویا و
+      نظامند ، در توسعه و تعالی زیرساختها عمرانی کشور ایفای
+      نقش نماید و با اتکا به دانش و تجربه نیروی
+      انسانی خود در راستای تحقق اهدافی چون توسعه صنعتی سازی و فناوری های نوین
+      ساختمانی گام بردارد .
+    </div>
+  </div>
+</div>

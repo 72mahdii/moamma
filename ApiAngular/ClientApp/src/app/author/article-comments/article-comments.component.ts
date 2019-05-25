@@ -1,0 +1,212 @@
+import { Component, OnInit } from '@angular/core';
+import { AuthorPanelService } from 'src/app/services/author.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Article } from 'src/app/models/articles/article.model';
+import { MessageService } from 'src/app/services/message.service';
+import { RepositoryService } from 'src/app/services/repository.service';
+import { Message } from 'src/app/models/message.model';
+import { SendReply } from 'src/app/models/comments/sendReply.model';
+import { CommentManager } from 'src/app/models/comments/commentManager.model';
+
+@Component({
+  selector: 'app-article-comments',
+  templateUrl: './article-comments.component.html',
+  styleUrls: ['./article-comments.component.scss']
+})
+export class ArticleCommentsComponent implements OnInit {
+
+  private _checkedIds: string[] = [];
+  private _uncheckIds: string[] = [];
+  private _deletedIds: string[] = [];
+  private _deletedRIds: string[] = [];
+  public article : Article = new Article("","","","","",false, 0);
+  public reply: string;
+  public tempId: string = null;
+
+  constructor(
+    private _authorPanel: AuthorPanelService,
+    private _repService: RepositoryService,
+    private _messageService: MessageService,
+    private _router: Router,
+    private _route : ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    this._route.params.subscribe(p => {
+      // this.article =this._repService.GetArticle(p["id"]);
+      this.article = this._authorPanel.ReturnArticle(p["id"]);
+    });
+    this._authorPanel.loadComment.subscribe(r => {
+      if (r) {
+        // this.article = this._repService.GetArticle(this._route.snapshot.params["id"]);
+        this.article = this._authorPanel.ReturnArticle(this._route.snapshot.params["id"]);
+
+      }
+    });
+    this._authorPanel.loadData.subscribe(rst => {
+      // this.article = this._repService.GetArticle(this._route.snapshot.params["id"]);
+      this.article = this._authorPanel.ReturnArticle(this._route.snapshot.params["id"]);
+
+    });
+
+  }
+
+  onCheck(id) {
+
+    if (!this._checkedIds.includes(id)) {
+      document.getElementById(id).classList.remove('uncheck');
+      document.getElementById(id).classList.add('check');
+      this._checkedIds.push(id);
+      if (this._deletedIds.includes(id)) {
+        document.getElementById('d-' + id).classList.remove('ch');
+        document.getElementById('d-' + id).classList.add('un');
+        this._deletedIds.splice(this._deletedIds.indexOf(id), 1);
+      }
+      if(this._uncheckIds.includes(id)){
+        this._uncheckIds.splice(this._uncheckIds.indexOf(id), 1);
+      }
+    } else {
+      document.getElementById(id).classList.add('uncheck');
+      document.getElementById(id).classList.remove('check');
+      this._checkedIds.splice(this._checkedIds.indexOf(id), 1);
+      this._uncheckIds.push(id);
+    }
+  }
+
+  onTrash(id) {
+    if (this._deletedIds.includes(id)) {
+      document.getElementById('d-' + id).classList.remove('ch');
+      document.getElementById('d-' + id).classList.add('un');
+      this._deletedIds.splice(this._deletedIds.indexOf(id), 1);
+    } else {
+      document.getElementById('d-' + id).classList.add('ch');
+      document.getElementById('d-' + id).classList.remove('un');
+      this._deletedIds.push(id);
+      if (this._checkedIds.includes(id)) {
+        this._checkedIds.splice(this._checkedIds.indexOf(id), 1);
+        document.getElementById(id).classList.add('uncheck');
+        document.getElementById(id).classList.remove('check');
+      }
+    }
+  }
+
+  onRTrash(id) {
+    if (this._deletedRIds.includes(id)) {
+      document.getElementById(id).classList.remove('ch');
+      document.getElementById(id).classList.add('un');
+      this._deletedRIds.splice(this._deletedRIds.indexOf(id), 1);
+    } else {
+      document.getElementById(id).classList.add('ch');
+      document.getElementById(id).classList.remove('un');
+      this._deletedRIds.push(id);
+    }
+  }
+
+  /*
+  onReset() {
+    var counter = document.getElementsByClassName('custom-btn').length;
+    var counterC = document.getElementsByClassName('custom-btn-c').length;
+    for (let i = 0; i < counter; i++) {
+      document.getElementsByClassName('custom-btn')[i]
+        .classList.remove('ch');
+      document.getElementsByClassName('custom-btn')[i]
+        .classList.add('un');
+    }
+    for (let j = 0; j < counterC; j++) {
+      document.getElementsByClassName('custom-btn-c')[j]
+        .classList.remove('check');
+      document.getElementsByClassName('custom-btn-c')[j]
+        .classList.add('uncheck');
+    }
+    let ok = [['بستن', () => { }]];
+    this._messageService.currentMessage.next(
+      new Message("تنظیمات به حالت اول بازگشت", ok));
+  }
+*/
+  onSubmit() {
+    let ok = [['بستن', () => { }]];
+    let confirm = [
+      ['انصراف', () => { }],
+      ['بله', () => {
+        let cmdManager = new CommentManager(
+          this._checkedIds,
+          this._uncheckIds,
+          this._deletedIds,
+          this._deletedRIds
+        );
+        document.getElementById('wait').classList.remove('hide');
+        this._authorPanel.UnCheckCommentManager(cmdManager)
+          .subscribe(r => {
+            if (r == "ok") {
+              //hide waiting
+              document.getElementById('wait').classList.add('hide');
+              this._messageService.currentMessage.next(
+                new Message("تنظیمات با موفقیت ثبت ذخیره شد!", ok));
+              this._authorPanel.FetchArticles();
+              this._authorPanel.loadComment.next();
+              this._router.navigate(['authors', 'index', 'repository']);
+
+            } else {
+              document.getElementById('wait').classList.add('hide');
+              this._messageService.currentMessage.next(
+                new Message("خطا در ثبت تنظیمات!", ok));
+              this._router.navigate(['authors', 'index', 'repository']);
+
+            }
+          }, error => {
+            document.getElementById('wait').classList.add('hide');
+            this._messageService.currentMessage.next(
+              new Message("خطا در برقراری ارتباط با سرور", ok));
+              this._router.navigate(['authors', 'index', 'repository']);
+
+          });
+      }]
+    ];
+    this._messageService.currentMessage.next(
+      new Message("ثبت تغییرات؟", confirm));
+
+  }
+
+  onReply(id) {
+    this.tempId = id;
+    document.getElementById('reply-box').classList.remove('off');
+    document.getElementById('reply-box').classList.add('on');
+  }
+
+  onSend() {
+    let ok = [['بستن', () => { }]];
+    if (this.tempId != null) {
+      document.getElementById('reply-box').classList.remove('on');
+      document.getElementById('reply-box').classList.add('off');
+      document.getElementById('wait').classList.remove('hide');
+      var id = this.tempId;
+      var txt = this.reply;
+      var rp: SendReply = new SendReply(id, txt);
+      this._authorPanel.SendReply(rp).subscribe(r => {
+        if (r == "ok") {
+          document.getElementById('wait').classList.add('hide');
+          this._authorPanel.FetchArticles();
+          this._authorPanel.loadComment.next(true);
+          this.reply = "";
+          this.tempId = "";
+        } else {
+          document.getElementById('wait').classList.add('hide');
+          this._messageService.currentMessage.next(
+            new Message("خطا در ارسال پاسخ نظر!", ok));
+        }
+      }, error => {
+        document.getElementById('wait').classList.add('hide');
+        this._messageService.currentMessage.next(
+          new Message("خطا در برقراری ارتباط با سرور", ok));
+      })
+    }
+  }
+
+  onClose() {
+    this.tempId = null;
+    this.reply = null;
+    document.getElementById('reply-box').classList.remove('on');
+    document.getElementById('reply-box').classList.add('off');
+  }
+
+}
