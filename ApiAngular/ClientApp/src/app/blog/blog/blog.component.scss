@@ -1,0 +1,824 @@
+@import '../../scss/importer';
+
+@keyframes updown {
+  0% {
+    @include border(.5rem $gold_3);
+    border-top: solid .5rem $gold_1;
+  }
+
+  25% {
+    @include border(.5rem $gold_3);
+    border-right: solid .5rem $gold_1;
+  }
+
+  50% {
+    @include border(.5rem $gold_3);
+    border-bottom: solid .5rem $gold_1;
+  }
+
+  75% {
+    @include border(.5rem $gold_3);
+    border-left: solid .5rem $gold_1;
+  }
+
+  100% {
+    @include border(.5rem $gold_3);
+  }
+}
+
+.home {
+  scroll-behavior: smooth;
+  @include bg($gr_silver);
+  padding-bottom: 20rem;
+  margin: 0;
+  .header {
+    @include bg($gr_black_2);
+    cursor: context-menu;
+    position: relative;
+    direction: rtl;
+    padding: 2rem 5rem 0 5rem;
+    .logo-box {
+      @include bg($gr_black_op);
+      @include tranRot(45deg);
+      @include border($gold_op .4rem);
+      @include size(6.5rem, 6.5rem);
+      position: relative;
+      direction: ltr;
+      margin: 0 auto 0 1rem;
+      animation-name: rotation;
+      animation-duration: 1s;
+      backface-visibility: hidden;
+
+      &:hover {
+        @include bg($gr_black_2);
+        @include border($gold_1 .4rem);
+        transform: scale(1.1) rotate(45deg);
+        transition: all .3s;
+      }
+
+      .logo-img {
+        @include abRightR(1%, 11%, -45deg);
+        height: 4rem;
+      }
+    }
+
+    .title-box {
+      @include size(36rem, 8rem);
+      position: relative;
+      color: $gold_1;
+      font-family: 'B_Yas';
+      animation-name: coming;
+      animation-duration: 1s;
+
+      .primary {
+        @include abRight(10%, 0);
+        font-size: 3rem;
+        font-weight:bold;
+      }
+      .sub {
+        @include abRight(55%, 5%);
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+
+    }
+
+    .nav-box {
+      @include abLeft(59%, 10%);
+      font-family: 'B_Yas';
+
+      .item {
+        @include bg($gr_gold_2);
+        @include size(8rem, 8rem);
+        @include pol(.4rem $black_3, .4rem $gold_3);
+        @include tranRot(-45deg);
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3rem;
+
+        &:hover {
+          transform: rotate(-45deg) scale(1.1);
+          transition: all .3s;
+        }
+
+        .item-link {
+          @include abRightR(2.5rem, 0rem, 45deg);
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-decoration: none;
+          color: $black_3;
+        }
+      }
+
+      .active-nav {
+        @include bg($gr_silver);
+        @include pol(.4rem $black_3, .4rem $white_1);
+        @include shadow(4rem $black_3);
+      }
+    }
+  }
+  .intro {
+    @include bg($gr_black_2);
+    position: relative;
+    font-family: 'B_Yas';
+    margin: 20rem 5rem 0 5rem;
+    .title-box {
+      @include abLeftR(-8.5%, 45%, 45deg);
+      @include bg($gr_gold_2);
+      @include pol(.8rem $white_1, .4rem $gold_4);
+      @include size(10rem , 10rem);
+      cursor: context-menu;
+      &:hover {
+        transform: rotate(45deg) scale(1.1);
+        transition: all .3s
+      }
+      .text {
+        @include ab-Rot(50%,50%,-50%,-50%);
+        font-size: 2rem;
+        font-weight: bold;
+        width: 12rem;
+        text-align: center;
+      }
+    }
+    .intro_content {
+      padding: 5rem;
+      .top {
+        padding-bottom: 3rem;
+        .search-box {
+          position: relative;
+          width: 30rem;
+          text-align: center;
+          padding-top: 5rem;
+          .inputer {
+            position: relative;
+            width: 30rem;
+            height:4rem;
+            display: inline-block;
+            .txt-box {
+              @include size(30rem, 4rem);
+              @include border(.2rem $gray_1);
+              @include bg($white_1);
+              position: relative;
+              border-radius: .5rem;
+              font-family: inherit;
+              font-size: 3rem;
+
+              &::-webkit-input-placeholder {
+                direction: rtl;
+                opacity: .6;
+                padding-right: 50%;
+                font-family: inherit;
+                font-size: 2rem;
+              }
+
+              &:focus {
+                @include border(.2rem $gold_4);
+                outline: none;
+                padding-right: 7rem;
+              }
+            }
+
+            .button {
+              @include bg($gr_gold_2);
+              @include abRightT(50%, .0%, 0, -50%);
+              @include size(5.5rem, 3.6rem);
+              padding: .4rem;
+              border-top-right-radius: .5rem;
+              border-bottom-right-radius: .5rem;
+
+              &:hover {
+                @include shadow(.4rem $black_2);
+                transform: translate(0, -50%) scale(.9);
+                transition: all .3s;
+              }
+
+              .btn-icon {
+                @include size(3rem, 3rem);
+              }
+            }
+          }
+
+          .ch-box {
+            text-align: right;
+            padding-right: 3rem;
+            margin-top: 1rem;
+            width: 30rem;
+
+            &--ch {
+              display: none;
+            }
+
+            .ch-box--ch:checked+.ch-box--lbl .ch-box--lbl_ch::after {
+              opacity: 1;
+            }
+
+
+            &--lbl {
+              cursor: pointer;
+              position: relative;
+              font-family: inherit;
+              font-size: 2rem;
+              font-weight: bold;
+              color: $white_1;
+              padding: 1rem;
+
+              &_ch {
+                @include abRight(28%, -12%);
+                @include size(2rem, 2rem);
+                @include border(.2rem $white_1);
+                display: inline-block;
+
+                &::after {
+                  content: "";
+                  @include size(1.2rem, 1.2rem);
+                  @include bg($gold_4);
+                  @include abC;
+                  display: block;
+                  transition: all .3s;
+                  opacity: 0;
+                }
+              }
+            }
+          }
+        }
+
+        .author {
+          cursor: context-menu;
+          position: relative;
+          display: inline-block;
+          margin: 0 auto;
+          padding-top: 2rem;
+
+          .img-box {
+            @include size(10rem, 10rem);
+            text-align: center;
+
+            &:hover {
+              transform: scale(1.1);
+              transition: all .3s;
+            }
+
+            .img {
+              @include size(9rem, 9rem);
+              @include border(.2rem $gold_4);
+              border-radius: 100%;
+            }
+          }
+
+          .title {
+            font-family: inherit;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $white_1;
+            text-align: center;
+          }
+        }
+      }
+
+      .bottom {
+        padding: 2rem 2rem;
+        border-top: solid .2rem rgba($white_1, .1);
+
+        .text-box {
+          font-family: inherit;
+          font-size: 2.5rem;
+          text-align: justify;
+          direction: rtl;
+          color: $white_1;
+        }
+      }
+    }
+  }
+  .article {
+    @include bg($gr_black_2);
+    position: relative;
+    font-family: 'B_Yas';
+    // margin:10rem 5rem 5rem 10rem;
+    margin: 10rem 5rem;
+    margin-bottom: .5rem;
+    border-radius: .5rem;
+
+    .left-side {
+      @include bg($gold_3);
+      position: relative;
+      direction: rtl;
+      font-family: 'B_Lotus';
+      border-top-left-radius: .5rem;
+      border-bottom-left-radius: .5rem;
+      height: 100%;
+
+      .article-title-box {
+        @include size(10rem, 10rem);
+        @include shadow(.5rem $black_3);
+        @include bg($gr_black_2);
+        @include pol(.3rem $gold_3, .3rem $black_2);
+        @include tranRot(45deg);
+        position: relative;
+        margin: 0 auto;
+
+        &:hover {
+          cursor: pointer;
+          transform: rotate(45deg) scale(1.1);
+          transition: all .3s;
+        }
+
+        .text {
+          @include abRot-(-1rem, 4.5rem, -55%, -70%);
+          font-family: 'B_Yas';
+          width: 15rem;
+          color: $white_1;
+          text-align: center;
+          font-size: 2rem;
+        }
+      }
+
+      .author-box {
+        cursor: context-menu;
+        border-bottom: solid .1rem rgba($black_3, .2);
+        padding: 4rem 0 1rem 0;
+        text-align: center;
+        max-width: 30rem;
+        margin: 0 auto;
+
+        .img {
+          @include size(6rem, 6rem);
+          @include border(.3rem $black_2);
+          border-radius: 100%;
+          margin: 0 1.5rem;
+        }
+
+        .name {
+          color: $black_2;
+          font-size: 3rem;
+          font-weight: bold;
+        }
+      }
+
+      .feedback-box {
+        border-bottom: solid .1rem rgba($black_3, .2);
+        max-width: 30rem;
+        margin: 0 auto;
+        text-align: center;
+        padding: 1rem 0;
+
+        .comment {
+          @include size(10rem, 4rem);
+          @include border(.2rem $black_3);
+          cursor: context-menu;
+          position: relative;
+          display: inline-block;
+          border-radius: .5rem;
+          margin-left: 10%;
+
+          .icon-box {
+            @include abRight(0%, -1%);
+            @include size(4.2rem, 3.6rem);
+            @include bg($gr_black_2);
+            border-top-right-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+
+            .icon {
+              @include abRight(13%, 10%);
+              @include size(3rem, auto);
+            }
+          }
+
+          .text {
+            @include abT(55%, 25%, -25%, -50%);
+            direction: ltr;
+            font-size: 2.5rem;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .date-box {
+        cursor: context-menu;
+        border-bottom: solid .1rem rgba($black_2, .2);
+        max-width: 30rem;
+        margin: 0 auto;
+
+        .date {
+          @include size(18rem, 3.5rem);
+          @include border(.2rem $black_3);
+          position: relative;
+          margin: 1rem auto;
+          border-radius: .5rem;
+
+          .icon-box {
+            @include size(4.2rem, 3.1rem);
+            @include abRight(0%, -1%);
+            @include bg($gr_black_2);
+            border-top-right-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+
+            .icon {
+              @include abRight(8%, 17%);
+              width: 2.5rem;
+            }
+          }
+
+          .date-text {
+            @include abT(55%, 40%, -50%, -50%);
+            font-size: 1.9rem;
+            font-weight: bold;
+          }
+
+        }
+      }
+
+      .option-box {
+        position: relative;
+        margin: 0 auto;
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+
+        .tag-box {
+          @include abLeft(0%, 0%);
+          @include size(14rem, 4rem);
+          @include bg($gr_red);
+          cursor: context-menu;
+          -webkit-clip-path: polygon(100% 0%, 85% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+          clip-path: polygon(100% 0%, 85% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+
+          .text {
+            @include abLeft(15%, 8%);
+            font-family: 'Times New Roman';
+            font-weight: bold;
+            font-size: 1.7rem;
+            color: $white_1;
+          }
+        }
+
+        .btn-box {
+          @include size(10rem, 4rem);
+          @include bg($green);
+          border-radius: 2rem;
+          text-align: center;
+          margin: 0 3rem;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            border-radius: .5rem;
+            transition: all .2s;
+          }
+
+          &--btn {
+            padding-top: 1rem;
+            font-family: 'B_Lotus';
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: $white_1;
+
+            .text {
+              display: inline-block;
+              margin-top: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .right-side {
+      direction: rtl;
+      color: $white_1;
+      padding: 1.5rem 3rem;
+
+      .title {
+        font-family: 'B_Yas';
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+      }
+
+      .summary {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 4rem;
+        text-align: justify;
+      }
+    }
+  }
+  .pg {
+    font-family: 'B_Lotus';
+    position: relative;
+    height: 5rem;
+    margin: 2rem auto 0 auto;
+    .pg_box {
+      @include border(.2rem rgba($black_3, .6));
+      @include size(auto, auto);
+      @include abC;
+      border-radius: .5rem;
+      margin: 0 auto;
+
+      & a:hover {
+        @include bg($gr_black_2);
+        cursor: pointer;
+        color: $white_1;
+        transition: all .3s;
+      }
+
+      .pg-prv {
+        @include bg($gold_4);
+        @include size(5rem, 4rem);
+        @include shadow(.1rem $black_3);
+        display: inline-block;
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+        color: $black_3;
+        font-size: 2rem;
+        padding: .5rem;
+      }
+
+      .pg-number {
+        @include size(4rem, 4rem);
+        @include bg($gold_4);
+        @include shadow(.1rem $black_3);
+        display: inline-block;
+        color: $black_3;
+        font-size: 2rem;
+        padding: .5rem;
+        text-align: center;
+      }
+
+      .pg-next {
+        @include bg($gold_4);
+        @include shadow(.1rem $black_3);
+        @include size(5rem, 4rem);
+        display: inline-block;
+        border-top-right-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+        color: $black_3;
+        font-size: 2rem;
+        padding: .5rem;
+      }
+
+      .pg-active {
+        @include bg($gr_silver);
+      }
+    }
+  }
+  .search-panel-bg {
+    position: fixed;
+    top:0;
+    left:0;
+    @include size(100vw, 100vh);
+    @include bg(rgba($black_2,.9));
+    z-index: 50000;
+    overflow-y: scroll;
+    transition: all .4s;
+    .close-btn {
+      @include abRight(2%, 2%);
+      font-size: 6rem;
+      color: $red_1;
+      padding: 2rem;
+      cursor: pointer;
+      &:hover {
+        color: $gold_1;
+      }
+    }
+    .not-found {
+      display: block;
+      text-align: center;
+      @include size(100%, auto);
+      font-family: 'B_Yas';
+      font-size: 5rem;
+      color: $red_1;
+    }
+    .sep {
+      @include size(80%, .5rem);
+      @include bg($gold_2);
+      border-radius: 100%;
+      margin: 9rem auto;
+    }
+    .search-panel-cnt {
+      position: relative;
+      .title-box {
+        position: relative;
+        @include size(auto, 12rem);
+        .search-panel_title {
+          @include size(10rem, 10rem);
+          @include bg($gold_2);
+          border: solid .3rem $black_1;
+          outline: solid .3rem $gold_2;
+          position: absolute;
+          top:40%;
+          left:50%;
+          transform: translate(-50%, 0%) rotate(-45deg);
+          .text{
+            width: 100%;
+            position: absolute;
+            top:50%; left:50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            font-family: 'B_Yas';
+            font-size: 2rem;
+            text-align: center;
+          }
+        }
+
+      }
+      .search-panel_found {
+        direction: rtl;
+        @include size(100%, auto);
+        margin-top:10rem;
+        .found-list-item {
+          @include size(75%, auto);
+          @include bg($black_2);
+          margin: 7rem auto;
+          position: relative;
+          border-radius: .5rem;
+          @include border(.1rem rgba($gold_1, .3));
+          .cat-box{
+            @include size(auto, 10rem);
+            position: relative;
+            .cat-title{
+              position: absolute;
+              top:50%;
+              right:0%;
+              transform: translate(0,-50%) rotate(-45deg);
+              @include bg($gold_2);
+              @include size(10rem, 10rem);
+              border:solid .3rem $black_2;
+              outline: solid .3rem $gold_2;
+              .text{
+                font-family: 'B_Yas';
+                font-size: 2rem;
+                position: absolute;
+                top:50%;left:50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+              }
+            }
+          }
+
+          .art-box{
+            position: relative;
+            @include size(100%, 10rem);
+            .art-title {
+              @include abRightT(50%, 0, 0, -50%);
+              width: 100%;
+              font-family: 'B_Yas';
+              font-size: 3rem;
+              text-align: center;
+              color: $white_1;
+            }
+          }
+
+          .btn-cnt {
+            @include size(100%, 10rem);
+            position: relative;
+            .read-btn{
+              @include size(15rem, 5rem);
+              @include bg($green);
+              @include abC;
+              border-radius: .5rem;
+              color: $white_1;
+              cursor: pointer;
+              transition: all .3s;
+              &:hover {
+                border-radius: 1.5rem;
+              }
+              .txt {
+                @include abC;
+                font-family: 'B_Yas';
+                font-size: 2rem;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.loading-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($black_1, .9);
+  transition: 1s;
+  z-index: 999999;
+
+  &_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+    height: 20rem;
+    border-radius: 100%;
+    background-color: rgba($black_2, .9);
+    animation-name: updown;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    transition: .5s;
+
+    &--waiting {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding: 1rem;
+      transform: translate(-50%, -50%);
+      color: $gold_2;
+      font-family: 'B_Esfehan';
+      width: 20rem;
+      text-align: center;
+      font-size: 2.5rem;
+
+    }
+  }
+}
+
+@media(max-width: 768px) {
+
+  .header {
+    padding-top: 6rem !important;
+    padding-bottom: 1rem !important;
+
+    .logo-box {
+      margin: 0 auto !important;
+    }
+
+    .title-box {
+      position: relative;
+      margin: 4rem auto;
+      margin-bottom: 1rem;
+      text-align: center;
+
+      .primary {
+        position: initial !important;
+      }
+
+      .sub {
+        position: initial !important;
+      }
+    }
+
+    .nav-box {
+      position: initial !important;
+      text-align: center;
+      margin: 1rem auto;
+    }
+  }
+
+  .intro {
+    margin: 0 4rem !important;
+    margin-top: 10rem !important;
+    padding-top: 3rem;
+
+    .title-box {
+      position: initial !important;
+      margin: 0 auto !important;
+
+      .text {
+        top: 37%;
+        left: 17%;
+      }
+    }
+
+    .content {
+      .top {
+        .search-box {
+          padding-top: 0% !important;
+          ;
+          width: 30rem !important;
+
+          .txt-box {
+            width: 30rem !important;
+
+            &:focus {
+              padding-right: 5rem !important;
+            }
+          }
+
+          .button {
+            top: 1.5% !important;
+            right: .65% !important;
+            width: 4.5rem !important;
+          }
+        }
+      }
+    }
+  }
+
+  .article {
+    .left-side {
+      border-radius: 0 !important;
+      border-top-left-radius: .5rem !important;
+      border-top-right-radius: .5rem !important;
+    }
+  }
+}
+
+

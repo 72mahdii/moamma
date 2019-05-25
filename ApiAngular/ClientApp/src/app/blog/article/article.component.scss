@@ -1,0 +1,575 @@
+@import '../../scss/importer';
+
+.home{
+  @include bg($gr_silver);
+  padding-bottom: 10rem;
+  margin: 0;
+  .header {
+    @include bg($gr_black_2);
+    position: relative;
+    direction: rtl;
+    padding: 2rem 5rem 0 5rem;
+    .logo-box {
+      @include bg($gr_black_op);
+      @include tranRot(45deg);
+      @include border(.4rem $gold_op);
+      @include size(6.5rem, 6.5rem);
+      position: relative;
+      direction: ltr;
+      margin: 0 auto;
+      margin-left: 1rem;
+      animation-name: rotation;
+      animation-duration: 1s;
+      backface-visibility: hidden;
+      &:hover {
+        @include bg($gr_black_2);
+        @include border(.4rem $gold_1);
+        transform: scale(1.1) rotate(45deg);
+        transition: all .3s;
+      }
+      .logo-img {
+        @include abRightR(1%, 11%, -45deg);
+        height: 4rem;
+      }
+    }
+    .title-box {
+      @include size(36rem, 8rem);
+      position: relative;
+      color: $gold_1;
+      font-family: 'B_Yas';
+      animation-name: coming;
+      animation-duration: 1s;
+      .primary {
+        @include abRight(10%, 0);
+        font-size: 2.5rem;
+      }
+      .sub {
+        @include abRight(55%, 5%);
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+    }
+    .nav-box {
+      @include abLeft(59%, 10%);
+      font-family: 'B_Yas';
+      .item {
+        @include bg($gr_gold_2);
+        @include size(8rem, 8rem);
+        @include pol(.4rem $black_3, .4rem $gold_3);
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3rem;
+        transform: rotate(-45deg);
+        &:hover {
+          transform: rotate(-45deg) scale(1.1);
+          transition: all .3s;
+        }
+        .item-link {
+          @include abRightR(29%, -1%, 45deg);
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-decoration: none;
+          color: $black_3;
+        }
+      }
+    }
+  }
+  .details {
+    @include bg($gr_black_2);
+    margin: 10rem 5rem;
+    margin-bottom:0;
+    border-radius: .5rem;
+    &_box {
+      .box-header {
+        @include bg($gr_gold_2);
+        font-family: 'B_Lotus';
+        text-align: center;
+        padding: 3rem 0;
+        .article-title {
+          font-size: 4rem;
+          color: $black_2;
+          border-bottom: solid .1rem rgba($black_3, .2);
+          margin: 0 auto;
+          max-width: 80rem;
+          padding-bottom: 2rem;
+          direction: rtl;
+        }
+        .info-box {
+          margin: 0 atuo;
+          .category-box {
+            @include size(18rem, 4rem);
+            @include border(.2rem $black_2);
+            position: relative;
+            border-radius: .5rem;
+            z-index: 100;
+            margin-top: 3.5rem;
+            .icon-box {
+              @include abRight(-.5%, -.2%);
+              @include bg($gr_black_2);
+              @include size(5rem, 3.7rem);
+              border-top-right-radius: .5rem;
+              border-bottom-right-radius: .5rem;
+              z-index: 4;
+              overflow: hidden;
+              .icon {
+                @include abRight(8%, 25%);
+              }
+            }
+            .text {
+              display: inline-block;
+              font-family: inherit;
+              font-size: 2.5rem;
+              padding-right: 5rem;
+              color: $black_2;
+            }
+          }
+          .date-box {
+            @include size(24rem, 4rem);
+            @include border(.2rem $black_2);
+            position: relative;
+            border-radius: .5rem;
+            z-index: 100;
+            margin-top: 3.5rem;
+            .icon-box {
+              @include bg($gr_black_2);
+              @include size(5rem, 3.7rem);
+              @include abRight(0%, 0%);
+              overflow: hidden;
+              z-index: 4;
+              .icon {
+                @include abRight(12%, 20%);
+                @include size(2.5rem, 2.4rem);
+                border-top-right-radius: .5rem;
+                border-bottom-right-radius: .5rem;
+              }
+            }
+            .text {
+              display: inline-block;
+              font-family: inherit;
+              font-size: 2.5rem;
+              padding-right: 3.5rem;
+              color: $black_2;
+            }
+          }
+          .author-box {
+            margin-top: 2rem;
+            .name {
+              padding-right: 2rem;
+              font-family: inherit;
+              font-size: 4rem;
+              color: $black_2;
+            }
+            .author-img {
+              display: inline-block;
+                .img {
+                  @include size(7rem, 7rem);
+                  @include border(.2rem $black_2);
+                  border-radius: 100%;
+                }
+            }
+          }
+        }
+      }
+      .content {
+        direction: rtl;
+        font-family: 'B_Lotus';
+        font-size: 2.5rem;
+        color: $white_1;
+        text-align: justify;
+        padding: 4rem 4rem;
+        line-height: 5rem;
+      }
+      .footer {
+        @include bg($gr_gold_2);
+        position: relative;
+        min-height: 6rem;
+        .button {
+          @include abRightT(50%, 5%, 5%, -50%);
+          @include size(14rem, 4rem);
+          @include bg($green);
+          cursor: pointer;
+          border-radius: 2rem;
+          text-align: center;
+          &:hover {
+            cursor: pointer;
+            border-radius: .5rem;
+            transition: all .2s;
+          }
+          .text {
+            @include abC;
+            font-family: 'B_Yas';
+            font-size: 2rem;
+            font-weight: bold;
+            color: $white_1;
+            width: 6rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .comments {
+    @include bg($gr_black_2);
+    margin: 0 5rem;
+    margin-bottom: 10rem;
+    border: solid .3rem $gold_2;
+    border-top: none;
+
+    .send-comment {
+      position: relative;
+      margin: 1rem auto;
+
+      // @include size(100%, 15rem);
+      .centrize {
+
+        // @include abC;
+        // @include size(88%, 15rem);
+        .img-box {
+          position: relative;
+          @include size(10rem, 10rem);
+          margin: 1rem auto;
+          // padding: 6rem 0;
+          .cmt-img {
+            @include abRightT(50%, 1%, 0%, -50%);
+            // @include abLeftT(50%, 1%, 0, -50%);
+            @include size(10rem, 10rem);
+            border-radius: 100%;
+            border: solid .2rem $gold_3;
+          }
+        }
+
+        .cmt-form-input {
+          // @include abLeftT(50%, 12%, 0, -50%);
+          @include size(100%, 17rem);
+          @include bg($white_1);
+
+          padding: .5rem 1rem;
+          border-radius: .5rem;
+          border: solid .2rem $gold_3;
+          outline: none;
+          resize: none;
+          font-family: 'B_Mitra';
+          font-size: 2rem;
+          direction: rtl;
+          margin: 1rem auto;
+          &::placeholder{
+            font-size: 2.5rem;
+            padding-right: 2.5rem;
+          }
+          &:focus {
+            border: solid .3rem rgba($gold_3, .3);
+            @include bg(rgb(255, 255, 255));
+          }
+        }
+        .cmt-form-input-sb {
+          @include size(100%, 5rem);
+          @include bg($white_1);
+          display:block;
+          padding: .5rem 1rem;
+          border-radius: .5rem;
+          border: solid .2rem $gold_3;
+          outline: none;
+          resize: none;
+          font-family: 'B_Mitra';
+          font-size: 2rem;
+          direction: rtl;
+          margin: 1rem auto;
+
+          &::placeholder {
+            font-size: 2.5rem;
+            padding-right: 2.5rem;
+          }
+
+          &:focus {
+            border: solid .3rem rgba($gold_3, .3);
+            @include bg(rgb(255, 255, 255));
+          }
+        }
+
+        .cmt-btn {
+          // @include abRightT(50%, 1%, 0, -50%);
+          position: relative;
+          @include size(100%, 5rem);
+          @include bg($gold_3);
+          border-radius: .5rem;
+          display: block;
+          font-size: 3rem;
+          color: $white_1;
+          margin: 1rem auto;
+          cursor: pointer;
+          outline: none;
+          border:none;
+          font-family: 'B_Mitra';
+          font-weight: bold;
+          &:hover {
+            border:solid .2rem rgba($white_1, .8);
+            border-radius: 0;
+          }
+          i {
+            @include abC;
+
+          }
+        }
+      }
+    }
+
+    .sep-box {
+      position: relative;
+      @include size(100%, 10rem);
+
+      h2.title {
+        display: table;
+        white-space: nowrap;
+        font-size: 6rem;
+        font-family: 'B_Mitra';
+        color: $gold_3;
+        margin: 0 auto;
+
+        &:before,
+        &:after {
+          border-top: .7rem solid $gold_3;
+          content: '';
+          display: table-cell;
+          position: relative;
+          top: 0.5em;
+          width: 45%;
+        }
+
+        &:before {
+          right: 1.5%;
+        }
+
+        &:after {
+          left: 1.5%;
+        }
+      }
+
+
+    }
+
+    .user-comment {
+      position: relative;
+      // @include size(100%, 20rem);
+      margin-top: 1rem;
+
+      .centrize {
+        // @include abC;
+        // @include size(78%, 15rem);
+
+        .img-box {
+          position: relative;
+          @include size(10rem, 10rem);
+          margin: 2rem auto;
+          .cmt-img {
+            @include abC;
+            // @include abLeftT(50%, 1%, 0, -50%);
+            @include size(10rem, 10rem);
+            border-radius: 100%;
+            border: solid .3rem $gold_3;
+            opacity: .7;
+          }
+        }
+
+        .cmt-text {
+          // @include abRightT(50%, 1%, 0, -50%);
+          // @include size(74rem, auto);
+          padding: .5rem 1rem;
+          border-radius: .5rem;
+          // border: solid .3rem rgba($gold_3, .3);
+          font-family: 'B_Mitra';
+          font-size: 2rem;
+          direction: rtl;
+          color: $dark_1;
+          @include bg($white_1);
+
+          .name {
+            display: block;
+            padding: 1rem;
+            font-size: 2.5rem;
+          }
+
+          span.text {
+            display: block;
+            padding: 1rem;
+            text-align: justify;
+          }
+        }
+        .a-cmt-text {
+          // @include abRightT(50%, 1%, 0, -50%);
+          // @include size(74rem, auto);
+          padding: .5rem 1rem;
+          border-radius: .5rem;
+          // border: dotted .3rem rgba($gold_3, 1);
+          @include bg($gold_1);
+          font-family: 'B_Mitra';
+          font-size: 2rem;
+          direction: rtl;
+          color: $dark_1;
+
+          .name {
+            display: block;
+            padding: 1rem;
+            font-size: 2.5rem;
+          }
+
+          span.text {
+            display: block;
+            padding: 1rem;
+            text-align: justify;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.loading-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($black_1, .9);
+  transition: 1s;
+  z-index: 999999;
+
+  &_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+    height: 20rem;
+    border-radius: 100%;
+    background-color: rgba($black_2, .9);
+    animation-name: updown;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    transition: .5s;
+
+    &--waiting {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding: 1rem;
+      transform: translate(-50%, -50%);
+      color: $gold_2;
+      font-family: 'B_Esfehan';
+      width: 20rem;
+      text-align: center;
+      font-size: 2.5rem;
+
+    }
+  }
+}
+
+
+@media(max-width: 768px) {
+
+  .header {
+    padding-top: 6rem !important;
+    padding-bottom: 1rem !important;
+
+    .logo-box {
+      margin: 0 auto !important;
+    }
+
+    .title-box {
+      position: relative;
+      margin: 4rem auto;
+      margin-bottom: 1rem;
+      text-align: center;
+
+      .primary {
+        position: initial !important;
+      }
+
+      .sub {
+        position: initial !important;
+      }
+    }
+
+    .nav-box {
+      position: initial !important;
+      text-align: center;
+      margin: 1rem auto;
+    }
+  }
+}
+
+@media(max-width:480px) {
+  .header {
+    .nav-box {
+      .item-link {
+        top: 37% !important;
+        right: -2% !important;
+      }
+    }
+  }
+
+  .details {
+    .details_box {
+      .box-header {
+        .info-box {
+          .category-box {
+            .icon-box {
+              .icon {
+                top: 11% !important;
+                right: 29% !important;
+                width: 2rem;
+                height: 3rem;
+              }
+            }
+          }
+
+          .date-box {
+            .icon-box {
+              right: -1% !important;
+
+              .icon {
+                top: 16% !important;
+                right: 21% !important;
+              }
+            }
+          }
+
+          .author-box {
+
+            .author-img {
+              height: 7.1rem !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media(min-width: 1600px) {
+
+  .details {
+    .details_box {
+      .box-header {
+        .info-box {
+          .category-box {
+            .icon-box {
+              .icon {
+                top: 21% !important;
+                right: 34% !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

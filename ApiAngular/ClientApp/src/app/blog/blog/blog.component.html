@@ -1,0 +1,244 @@
+<div class="home">
+  <header class="header">
+    <div class="row d-flex justify-content-center">
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+        <!-- Logo -->
+        <div class="logo-box" routerLink="/home">
+          <img src="assets/logo.png" alt="moammapey-logo" class="logo-img">
+        </div>
+      </div>
+      <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
+        <!-- Titles -->
+        <div class="title-box">
+          <h3 class="primary">گروه فنی و مهندسی معما پی</h3>
+          <h5 class="sub">ایمن بسازیم سالم بمانیم</h5>
+        </div>
+      </div>
+    </div>
+    <div class="nav-box">
+      <div class="item" routerLink="/docs/earth" routerLinkActive="active-nav">
+        <a class="item-link">سازه</a>
+      </div>
+      <div class="item" routerLinkActive="active-nav" routerLink="/docs/geo">
+        <a class="item-link">ژئوتکنیک</a>
+      </div>
+      <div class="item" routerLink="/docs/mng" routerLinkActive="active-nav">
+        <a class="item-link">مدیریت ساخت</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="title-box">
+      <div class="text">{{ this.cat }}</div>
+    </div>
+    <div class="intro_content">
+      <div class="top">
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-flex justify-content-center">
+            <div class="search-box">
+              <span class="inputer">
+                <input [(ngModel)]="searchWords" type="text" class="txt-box" placeholder="جست و جو...">
+                <a class="button" (click)="onSearch()">
+                  <img src="assets/search.png" alt="" class="btn-icon">
+                </a>
+              </span>
+              <div class="ch-box">
+                <input [(ngModel)]="totalSearch" id="ch" type="checkbox" class="ch-box--ch">
+                <label for="ch" class="ch-box--lbl">
+                  جست و جو در همه مقالات
+                  <span class="ch-box--lbl_ch"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12"></div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-flex justify-content-center">
+
+            <div class="row">
+              <div class="author col-auto" *ngFor="let author of authors">
+                <div class="img-box">
+                  <img [src]="author?.imgAddress ? author.imgAddress : 'assets/author-default.png'" alt="" class="img">
+                </div>
+                <div class="title">
+                  {{ author?.name}}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="text-box">
+              {{ des }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   <section class="pg" *ngIf="pages !=0">
+     <div class="pg_box">
+       <a class="pg-prv" *ngIf="currentPage != pagesNumber[0]" (click)="onChangePage(currentPage - 1)">قبلی</a>
+       <a class="pg-number" *ngFor="let pg of pagesNumber" [class.pg-active]="pg==currentPage"
+         (click)="onChangePage(pg)">
+         {{pg}}
+       </a>
+       <a class="pg-next"
+        *ngIf="currentPage != pagesNumber[pagesNumber.length -1]"
+         (click)="onChangePage(currentPage + 1)">بعدی</a>
+     </div>
+   </section>
+   <section *ngFor="let dt of articles">
+     <div class="article"  >
+       <div class="row">
+         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+           <!-- Left Side of Article Box -->
+           <div class="left-side">
+             <!-- Category of Article -->
+             <div class="article-title-box">
+               <div class="text">{{ cat }}</div>
+             </div>
+             <!-- Author of Article -->
+             <div class="author-box">
+               <!-- Author's Photo-->
+               <img [src]="dt?.auth?.imgAddress ? dt?.auth?.imgAddress : 'assets/author-default.png'" alt="" class="img">
+               <!-- Autor's Name -->
+               <span class="name">
+                 {{ dt.auth.name }}
+               </span>
+             </div>
+             <!-- Date Box of Article -->
+             <div class="date-box">
+               <!-- Date's Box -->
+               <div class="date">
+                 <!-- Date's Icon Box-->
+                 <div class="icon-box">
+                   <img src="assets/calendar.png" alt="" class="icon">
+                 </div>
+                 <!-- Date's Text -->
+                 <span class="date-text">
+                   {{ dt.art.crtDate | slice:0:10 }}
+                 </span>
+               </div>
+             </div>
+             <!-- Feedback of Article -->
+             <div class="feedback-box">
+               <!-- Comments -->
+               <div class="comment">
+                 <!-- Comments Icon -->
+                 <div class="icon-box">
+                   <img src="assets/comment.png" alt=""
+                     class="icon">
+                 </div>
+                 <!-- Comments Counter -->
+                 <span class="text">
+                   {{ dt.art?.comments.length}}
+                 </span>
+               </div>
+
+             </div>
+             <!-- Option Box of Article-->
+             <div class="option-box">
+               <!-- Tag of Article-->
+               <div class="tag-box">
+
+                 <span class="text" >
+                   {{ dt.art.tag }}
+                 </span>
+
+               </div>
+               <!-- More Button -->
+               <div class="btn-box">
+                 <a class="btn-box--btn" routerLink="{{ dt.art.id }}">
+                   <span class="text">مطالعه مقاله</span>
+                 </a>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+           <!-- Right Side of Article Box -->
+           <div class="right-side">
+             <!-- Title of Article -->
+             <div class="title">
+                {{ dt.art.title }}
+             </div>
+             <!-- The Summary of Article -->
+             <div class="summary">
+              {{ dt.art.summary }}
+            </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+   <section class="pg" *ngIf="pages !=0" >
+     <div class="pg_box">
+       <a class="pg-prv" *ngIf="currentPage != pagesNumber[0]" (click)="onChangePage(currentPage - 1)">قبلی</a>
+       <a class="pg-number" *ngFor="let pg of pagesNumber" [class.pg-active]="pg==currentPage"
+         (click)="onChangePage(pg)">
+         {{pg}}
+       </a>
+       <a class="pg-next"
+        *ngIf="currentPage != pagesNumber[pagesNumber.length -1]"
+         (click)="onChangePage(currentPage + 1)">بعدی</a>
+     </div>
+   </section>
+
+   <div class="search-panel-bg hide" id="srch">
+     <div class="search-panel-cnt">
+       <div class="title-box">
+         <div class="search-panel_title">
+           <div class="text">
+             جست و جو
+           </div>
+         </div>
+       </div>
+       <div class="sep"></div>
+       <div class="search-panel_found">
+         <span class="close-btn" (click)="onCloseSearch()" >&times;</span>
+        <span class="not-found" *ngIf="foundArticle.length == 0" > کلمه مورد جست و جوی یافت نشد!</span>
+         <div class="found-list-item" *ngFor="let ar of foundArticle">
+           <div class="row">
+             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+               <div class="cat-box">
+                 <div class="cat-title">
+                   <div class="text">{{ ar.category }}</div>
+                 </div>
+               </div>
+             </div>
+             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+               <div class="art-box">
+                 <div class="art-title">
+                   {{ ar.title }}
+                 </div>
+
+               </div>
+             </div>
+             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+               <div class="btn-cnt">
+                 <div class="read-btn" routerLink="{{ ar.id }}" >
+                   <span class="txt">
+                     مطالعه مقاله
+                   </span>
+                  </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+</div>
+
+<div class="loading-dialog hide" id="loading">
+  <div class="loading-dialog_content">
+    <div class="loading-dialog_content--waiting">
+     {{ msg }}
+    </div>
+  </div>
+</div>
