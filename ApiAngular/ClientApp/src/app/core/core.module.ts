@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { JointComponent } from './joint/joint.component';
 import { AuthModule } from '../author/author.module';
 import { GodModule } from '../god/god.module';
+import { BlogModule } from '../blog/blog.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { GodModule } from '../god/god.module';
     FormsModule,
     CoreRoutes,
     AuthModule,
-    GodModule
+    GodModule,
+    BlogModule
   ],
   providers: [GodService],
 })
