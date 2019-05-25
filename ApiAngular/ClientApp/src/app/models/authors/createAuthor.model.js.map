@@ -1,0 +1,1 @@
+{"version":3,"file":"createAuthor.model.js","sourceRoot":"","sources":["createAuthor.model.ts"],"names":[],"mappings":";;AAAA;IACE,sBACS,QAAgB,EAChB,KAAa,EACb,QAAgB,EAChB,aAAqB,EACrB,QAAgB;QAJhB,aAAQ,GAAR,QAAQ,CAAQ;QAChB,UAAK,GAAL,KAAK,CAAQ;QACb,aAAQ,GAAR,QAAQ,CAAQ;QAChB,kBAAa,GAAb,aAAa,CAAQ;QACrB,aAAQ,GAAR,QAAQ,CAAQ;IACrB,CAAC;IACP,mBAAC;AAAD,CAAC,AARD,IAQC;AARY,oCAAY"}
