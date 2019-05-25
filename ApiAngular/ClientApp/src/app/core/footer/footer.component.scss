@@ -1,0 +1,110 @@
+@import '../../scss/importer';
+.footer {
+  @include bg($gr_black_2);
+  position: relative;
+  min-height: 30rem;
+  margin-top: 0rem;
+  font-family: 'B Yas';
+  .title {
+    position: absolute;
+    top: -52.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    .img {
+      .footer_img {
+        @include size(32rem, 32rem);
+      }
+    }
+  }
+  .social-box {
+    text-align: center;
+    padding-top: 4rem;
+    height: 100%;
+    .sb-title {
+      font-size: 2.5rem;
+      text-align: right;
+      font-weight: bold;
+      color: $white_1;
+      border-bottom: solid $white_1 .1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+    }
+    .img {
+      @include size(auto, 5rem);
+      display: inline-block;
+      margin: 0 1rem;
+      &:hover {
+        transform: scale(1.2);
+        transition: all .3s;
+      }
+    }
+  }
+  .argument-box {
+    opacity: .7;
+    .text {
+      font-size: 1rem;
+      border-top: solid .1rem $white_1;
+      text-align: center;
+      color: $white_1;
+      margin-top: 10rem;
+      margin-bottom:0;
+    }
+  }
+  .address-box {
+    direction: rtl;
+    color: $white_1;
+    padding-top: 4rem;
+    .ab-title {
+      font-size: 2.5rem;
+      text-align: right;
+      font-weight: bold;
+      color: $white_1;
+      border-bottom: solid $white_1 .1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+    }
+    .address {
+      font-size: 2rem;
+      .address-icon {
+        @include size(2.5rem, 2.5rem);
+        display: inline-block;
+      }
+    }
+    .tell {
+      direction: rtl;
+      padding-top: 2rem;
+      font-size: 2rem;
+      .tell-icon {
+        @include size(2.5rem, 2.5rem);
+        display: inline-block;
+      }
+      .text {
+        direction: ltr;
+      }
+    }
+  }
+}
+@media(max-width: 768px) {
+  .footer {
+    .title {
+      top: -19% !important;
+      left: 50% !important;
+      .img {
+        .footer_img {
+          width: 20rem !important;
+          height: 20rem !important;
+        }
+      }
+    }
+    .social-box {
+      padding-top: 10rem !important;
+    }
+  }
+}
+@media(min-width: 1600px) {
+  .footer {
+    .title {
+      top: -47.5% !important;
+    }
+  }
+}
