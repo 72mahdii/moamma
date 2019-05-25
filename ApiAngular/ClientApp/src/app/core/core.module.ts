@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { JointComponent } from './joint/joint.component';
 import { AuthModule } from '../author/author.module';
+import { GodModule } from '../god/god.module';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AuthModule } from '../author/author.module';
     BrowserModule,
     FormsModule,
     CoreRoutes,
-    AuthModule
+    AuthModule,
+    GodModule
   ],
   providers: [GodService],
 })
