@@ -1,0 +1,25 @@
+<div class="refresh-box" (click)="onRefresh()">
+  <h1 class="refresh-btn">
+    <i class="fa fa-spin fa-refresh" aria-hidden="true"></i>
+    بروز رسانی اطلاعات
+  </h1>
+</div>
+<div class="wlc_header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="wlc-box">
+          <img [src]="author?.imageAddress" alt="" class="img">
+          <div class="wlc-title">
+            <span class="wlc-text">
+              {{ author?.persianName }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

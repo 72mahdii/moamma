@@ -1,0 +1,87 @@
+<div class="password-box">
+  <div class="container">
+      <div class="row py-3">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+          <div class="list-group m-auto" style="direction: rtl;">
+            <h5 class="list-group-item list-group-item-success p-3">
+                تگ مقالات: {{ categoryLabel }}
+            </h5>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+          <div class="list-group m-auto" style="direction: rtl;">
+            <h5 class="list-group-item list-group-item-success py-3 px-1">
+              ایمیل: {{ profile.email }}
+            </h5>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+          <div class="list-group m-auto" style="direction: rtl;">
+            <h5 class="list-group-item list-group-item-success p-3">
+              نام کاربری: {{ profile.userName }}
+            </h5>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+          <div class="list-group m-auto" style="direction: rtl;">
+            <h5 class="list-group-item list-group-item-success p-3">
+              نام: {{ profile.persianName }}
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="row py-3">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 offset-2">
+          <h5 class="text-white text-right bg-primary p-4 m-auto">تغییر اطلاعات کاربری</h5>
+          <form class="p-2 text-center bg-faded" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <input
+                class="form-control form-control-lg"
+                placeholder="نام کاربری جدید"
+                [(ngModel)]="profile.userName"
+                name="userName"
+                required
+                />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control form-control-lg"
+                placeholder="ایمیل جدید"
+                [(ngModel)]="profile.email"
+                name="email"
+                required
+                />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control form-control-lg"
+                placeholder="نام فارسی جدید"
+                [(ngModel)]="profile.persianName"
+                name="persianName"
+                required
+                />
+            </div>
+            <div class="form-group">
+              <select
+                class="custom-select form-control-lg "
+                [(ngModel)]="profile.category"
+                name="category"
+                >
+                <option>تگ مقاله</option>
+                <option value="geo">ژئوتکنیک</option>
+                <option value="mng">مدیریت ساخت</option>
+                <option value="earth">زلزله</option>
+              </select>
+            </div>
+            <a class="btn btn-secondary d-inline-block w-25 btn-lg mx-2">انصراف</a>
+            <button
+              type="submit"
+              class="btn btn-primary d-inline-block w-25 btn-lg mx-2"
+              [disabled]=""
+              >ذخیره</button>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+

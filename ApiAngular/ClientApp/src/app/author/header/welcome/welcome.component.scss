@@ -1,0 +1,82 @@
+@import '../../../scss/importer';
+
+
+  .refresh-btn {
+    cursor: pointer;
+    position: fixed;
+    bottom:0%;
+    left:1%;
+    font-size: 2rem;
+    text-align: center;
+    color: $white_1;
+    font-family: 'B_Esfehan';
+    padding:1rem;
+    @include size(20rem, 4rem);
+    @include bg($green);
+    border-radius: .5rem;
+    z-index: 4;
+    &:active {
+      transform: scale(.9);
+    }
+    &:hover {
+      @include bg($green_1);
+      border-radius: 1rem;
+    }
+
+  }
+
+.wlc_header {
+  @include bg($blue_1);
+  padding: .5rem 0;
+  .wlc-box {
+    direction: rtl;
+    font-family: 'B_Esfehan';
+    .img {
+      @include size(7rem, 7rem);
+      @include border(.3rem $blue_2);
+      display: inline-block;
+      border: solid .3rem $blue_2;
+      border-radius: 100%;
+    }
+    .wlc-title {
+      display: inline-block;
+      font-size: 2rem;
+      margin-right: 1rem;
+      color: $blue_2;
+      .wlc-text {
+        display: inline-block
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
+
+.wlc_header_exit-box {
+  font-family: 'B_Esfehan';
+  font-size: 2.5rem;
+  color: #f94343;
+}
+
+.wlc_header_exit-box--link {
+  display: inline-block;
+  width: 10rem;
+  text-align: center;
+  transform: rotate(180deg);
+  transition: all .3s;
+  color: crimson;
+}
+
+.wlc_header_exit-box--link:active {
+  transform: rotate(180deg) scale(.9);
+  border-radius: .5rem;
+}
+
+.wlc_header_exit-box--link:hover {
+  box-shadow: 0 0 .4rem #f94343;
+}

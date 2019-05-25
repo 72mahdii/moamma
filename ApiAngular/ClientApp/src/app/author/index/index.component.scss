@@ -1,0 +1,96 @@
+@import '../../scss/importer';
+
+.section {
+  position: relative;
+  background: linear-gradient(90deg, #1a1919, #272626);
+  height:100%;
+}
+.popup-message {
+  @include size(30rem, 6rem);
+  @include bg($white_1);
+  position: fixed;
+  bottom:2%;
+  right:2%;
+  &:hover {
+    opacity: .4;
+  }
+  .close-btn {
+    @include abRight(1%, 2%);
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: $red_1;
+  }
+  .message-text{
+    @include abC;
+    @include size(100%, auto);
+    font-family: 'B_Esfehan';
+    font-size: 2rem;
+    text-align: center;
+    direction: rtl;
+    color: $green;
+
+  }
+
+
+}
+.hide {
+  // display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .6s;
+}
+.show {
+  visibility: visible;
+  opacity: 1;
+  transition: all .6s;
+}
+.loading-box {
+  @include rawFix;
+  @include bg($black_1);
+  @include size(100%, 100vh);
+  transition: all .6s;
+  .loading {
+    position: relative;
+    @include abRightT(30%, 50%, 50%, 0%);
+    @include border(.5rem $gold_2);
+    @include size(40rem, 20rem);
+    animation: updown;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    border-radius: .5rem;
+    color: $gold_1;
+
+    .text {
+      @include abC;
+      font-size: 2.5rem;
+      font-family: 'B_Esfehan';
+      text-align: center;
+      width: 100%;
+    }
+
+  }
+}
+
+.waiting-box {
+  position: fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  @include bg($red_1);
+  z-index: 9999;
+  @include shadow(3rem $red_1);
+  @include size(20rem, 20rem);
+  border-radius: 100%;
+  animation:pop;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  transition: all .3s;
+  .wait-text {
+    @include abC;
+    font-family: 'B_Esfehan';
+    font-size: 2rem;
+    color: $white_1;
+    @include size(100%, auto);
+    text-align: center;
+  }
+}

@@ -1,0 +1,395 @@
+@import '../../scss/importer';
+
+.create-box {
+  @include bg($blue_4);
+  direction: rtl;
+  .form-header{
+    @include bg($white_1);
+    @include border(.1rem rgba($red_1, .3));
+    display: block;
+    font-family: 'B_Esfehan';
+    font-size: 2.5rem;
+    padding: 2rem;
+    margin: 2rem auto;
+    margin-bottom: 0;
+  }
+  .article-form {
+    @include border(.1rem rgba($red_1, .3));
+    @include bg($white_1);
+    @include size(100%, auto);
+    padding: 2rem 3rem;
+    border-top:none;
+  }
+}
+input,
+button,
+select,
+textarea
+{
+  font-family: 'B_Esfehan';
+  font-weight: bold;
+  font-size: 2rem;
+}
+.text-editor {
+  direction: ltr;
+  min-height: 30rem;
+}
+
+.close-it{
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show-it{
+  visibility: visible;
+  opacity: 1;
+}
+
+.home {
+  @include rawFix;
+  @include bg($gr_silver);
+  @include size(100%, 100vh);
+  overflow-y: scroll;
+  padding-bottom: 10rem;
+  margin: 0;
+
+  .header {
+    @include bg($gr_black_2);
+    position: relative;
+    direction: rtl;
+    padding: 2rem 5rem 0 5rem;
+
+    .logo-box {
+      @include bg($gr_black_op);
+      @include tranRot(45deg);
+      @include border(.4rem $gold_op);
+      @include size(6.5rem, 6.5rem);
+      position: relative;
+      direction: ltr;
+      margin: 0 auto;
+      margin-left: 1rem;
+      animation-name: rotation;
+      animation-duration: 1s;
+      backface-visibility: hidden;
+
+      &:hover {
+        @include bg($gr_black_2);
+        @include border(.4rem $gold_1);
+        transform: scale(1.1) rotate(45deg);
+        transition: all .3s;
+      }
+
+      .logo-img {
+        @include abRightR(1%, 11%, -45deg);
+        height: 4rem;
+      }
+    }
+
+    .title-box {
+      @include size(36rem, 8rem);
+      position: relative;
+      color: $gold_1;
+      font-family: 'B_Yas';
+      animation-name: coming;
+      animation-duration: 1s;
+
+      .primary {
+        @include abRight(10%, 0);
+        font-size: 2.5rem;
+      }
+
+      .sub {
+        @include abRight(55%, 0);
+        font-size: 1.3rem;
+      }
+    }
+
+    .nav-box {
+      @include abLeft(59%, 10%);
+      font-family: 'B_Yas';
+
+      .item {
+        @include bg($gr_gold_2);
+        @include size(8rem, 8rem);
+        @include pol(.4rem $black_3, .4rem $gold_3);
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3rem;
+        transform: rotate(-45deg);
+
+        &:hover {
+          transform: rotate(-45deg) scale(1.1);
+          transition: all .3s;
+        }
+
+        .item-link {
+          @include abRightR(29%, -1%, 45deg);
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-decoration: none;
+          color: $black_3;
+        }
+      }
+    }
+  }
+
+  .details {
+    @include bg($gr_black_2);
+    margin: 10rem 5rem;
+    border-radius: .5rem;
+
+    &_box {
+      .box-header {
+        @include bg($gr_gold_2);
+        font-family: 'B_Lotus';
+        text-align: center;
+        padding: 3rem 0;
+
+        .article-title {
+          font-size: 4rem;
+          color: $black_2;
+          border-bottom: solid .1rem rgba($black_3, .2);
+          margin: 0 auto;
+          max-width: 80rem;
+          padding-bottom: 2rem;
+          direction:rtl;
+        }
+
+        .info-box {
+          margin: 0 atuo;
+
+          .category-box {
+            @include size(18rem, 4rem);
+            @include border(.2rem $black_2);
+            position: relative;
+            border-radius: .5rem;
+            z-index: 100;
+            margin-top: 3.5rem;
+
+            .icon-box {
+              @include abRight(-.5%, -.2%);
+              @include bg($gr_black_2);
+              @include size(5rem, 3.7rem);
+              border-top-right-radius: .5rem;
+              border-bottom-right-radius: .5rem;
+              z-index: 4;
+              overflow: hidden;
+
+              .icon {
+                @include abRight(8%, 25%);
+              }
+            }
+
+            .text {
+              display: inline-block;
+              font-family: inherit;
+              font-size: 2.5rem;
+              padding-right: 5rem;
+              color: $black_2;
+            }
+          }
+
+          .date-box {
+            @include size(24rem, 4rem);
+            @include border(.2rem $black_2);
+            position: relative;
+            border-radius: .5rem;
+            z-index: 100;
+            margin-top: 3.5rem;
+
+            .icon-box {
+              @include bg($gr_black_2);
+              @include size(5rem, 3.7rem);
+              @include abRight(0%, 0%);
+              overflow: hidden;
+              z-index: 4;
+
+              .icon {
+                @include abRight(12%, 20%);
+                @include size(2.5rem, 2.4rem);
+                border-top-right-radius: .5rem;
+                border-bottom-right-radius: .5rem;
+              }
+            }
+
+            .text {
+              display: inline-block;
+              font-family: inherit;
+              font-size: 2.5rem;
+              padding-right: 3.5rem;
+              color: $black_2;
+            }
+          }
+
+          .author-box {
+            margin-top: 2rem;
+
+            .name {
+              padding-right: 2rem;
+              font-family: inherit;
+              font-size: 4rem;
+              color: $black_2;
+            }
+
+            .author-img {
+              display: inline-block;
+
+              .img {
+                @include size(7rem, 7rem);
+                @include border(.2rem $black_2);
+                border-radius: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .content {
+        direction: rtl;
+        font-family: 'B_Lotus';
+        font-size: 2.5rem;
+        color: $white_1;
+        text-align: justify;
+        padding: 4rem 4rem;
+        line-height: 5rem;
+        height: 100%;
+      }
+
+      .footer {
+        @include bg($gr_gold_2);
+        position: relative;
+        min-height: 6rem;
+
+        .button {
+          @include abRightT(50%, 5%, 5%, -50%);
+          @include size(14rem, 4rem);
+          @include bg($green);
+          cursor: pointer;
+          border-radius: 2rem;
+          text-align: center;
+
+          &:hover {
+            cursor: pointer;
+            border-radius: .5rem;
+            transition: all .2s;
+          }
+
+          .text {
+            @include abC;
+            font-family: 'B_Yas';
+            font-size: 2rem;
+            font-weight: bold;
+            color: $white_1;
+            width: 6rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 768px) {
+
+  .header {
+    padding-top: 6rem !important;
+    padding-bottom: 1rem !important;
+
+    .logo-box {
+      margin: 0 auto !important;
+    }
+
+    .title-box {
+      position: relative;
+      margin: 4rem auto;
+      margin-bottom: 1rem;
+      text-align: center;
+
+      .primary {
+        position: initial !important;
+      }
+
+      .sub {
+        position: initial !important;
+      }
+    }
+
+    .nav-box {
+      position: initial !important;
+      text-align: center;
+      margin: 1rem auto;
+    }
+  }
+}
+
+@media(max-width:480px) {
+  .header {
+    .nav-box {
+      .item-link {
+        top: 37% !important;
+        right: -2% !important;
+      }
+    }
+  }
+
+  .details {
+    .details_box {
+      .box-header {
+        .info-box {
+          .category-box {
+            .icon-box {
+              .icon {
+                top: 11% !important;
+                right: 29% !important;
+                width: 2rem;
+                height: 3rem;
+              }
+            }
+          }
+
+          .date-box {
+            .icon-box {
+              right: -1% !important;
+
+              .icon {
+                top: 16% !important;
+                right: 21% !important;
+              }
+            }
+          }
+
+          .author-box {
+
+            .author-img {
+              height: 7.1rem !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media(min-width: 1600px) {
+
+  .details {
+    .details_box {
+      .box-header {
+        .info-box {
+          .category-box {
+            .icon-box {
+              .icon {
+                top: 21% !important;
+                right: 34% !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
