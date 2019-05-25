@@ -1,0 +1,20 @@
+@import './functions';
+@import './_colors';
+
+// Gold
+$gr_gold_1: CreateGr(90deg, $gold_2, #fff04b);
+$gr_gold_2: CreateGr(90deg, #ffb919, #ffd819);
+// Black
+$gr_black_1: CreateGr(90deg, #1a1919, #272626);
+$gr_black_2: CreateGr(90deg, #2a2a2a, #5d5d5d);
+$gr_black_op: CreateGr(90deg, rgba($black_2, .25), rgba(#5d5d5d, .25));
+// Special
+$gr_silver: CreateGr(0deg, $white_1, #d6dadf);
+$gr_home: linear-gradient(105deg, rgba($black_1, 1) 0%, rgba($black_1, 1) 50%, rgb(37, 37, 37) 50%);
+// Red
+$gr_red: CreateGr(90deg,#e40505, #fe4f4f);
+// White
+$gr_white_1: CreateGr(90deg, #a2a2a2, #d5d5d5);
+$gr_white_2: CreateGr(90deg, #d4cdcd, #b4afaf);
+$gr_white_3: CreateGr(90deg, #d6c6c6, #cbc6c6);
+$gr_white_4: CreateGr(90deg, #cdc8c8, #c7bebe);
